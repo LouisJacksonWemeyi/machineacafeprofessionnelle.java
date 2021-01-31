@@ -1,0 +1,24 @@
+GeneratorModel for yakindu::java {
+
+	const PROJECT : string = "com.yakindu.sct.machineacafeprofessionnelle.java"
+
+	const FOLDER : string = "src/main/java"
+
+	statechart MachineAcafeProfessionnelleCtrl {
+
+		feature Outlet {
+			targetProject = PROJECT
+			targetFolder = FOLDER
+			libraryTargetFolder = "src/main/java"
+		}
+		feature Naming {
+			basePackage =  "machineacafeprofessionnelle" 
+		}
+		
+		feature GeneralFeatures {
+			RuntimeService = false
+			TimerService = true
+			//synchronized = true
+		}
+	}
+}
