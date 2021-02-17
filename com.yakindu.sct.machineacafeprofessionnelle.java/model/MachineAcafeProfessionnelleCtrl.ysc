@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sgraph="http://www.yakindu.org/sct/sgraph/2.0.0">
-  <sgraph:Statechart xmi:id="_wMrvwF4oEeuueIYcMJGC3A" specification="// Use the event driven execution model.&#xA;// Switch to cycle based behavior&#xA;// by specifying '@CycleBased(200)'.&#xA;@EventDriven&#xA;&#xA;// Use @SuperSteps(yes) to enable&#xA;// super step semantics.&#xA;@SuperSteps(no)&#xA;&#xA;interface:&#xA;&#x9;// Define events and variables here. &#xA;&#x9;// Use CTRL + Space for content assist.&#xA;&#x9;in event selectSpecialDrink&#xA;&#x9;in event selectNormalDrink:string&#xA;    in event navButtonClick&#xA;    in event IntensiteCafeButtonClick&#xA;    in event tailleDeLaTasseButtonClick&#xA;    in event deuxTasseAlafoisButtonClick&#xA;    in event retourButtonClick &#xA;    in event StartStop&#xA;    in event bacCollectorVider&#xA;    in event grainsAjouter :integer&#xA;    in event filtreRemplacer&#xA;    in event reservoirRempli : integer&#xA;    in event ajoutSolutionDetartre:integer&#xA;    in event menuButtonClick&#xA;    in event okButtonClick&#xA;    operation startHeating() : void&#xA;    operation stopHeating() : void&#xA;    operation startMouture(a:string) : void&#xA;    operation stopMouture(a:string) : void&#xA;    operation startPumping(a:string) : void&#xA;    operation stopPumping(a:string) : void&#xA;    operation updateHeating(a : integer) : void&#xA;    operation show(a : string) : void&#xA;    var tempEau : integer &#xA;    var minTempEau : integer = 20&#xA;    var volumeEau : integer = 2000&#xA;    var isHeating : boolean&#xA;    &#xA;    &#xA;   &#xA;&#x9;&#xA;&#xA;interface Screen:&#xA;out event displayOff&#xA;out event displayChoixLangue : string&#xA;out event displayLogo&#xA;out event displayHeatingUp:integer&#xA;out event displayRincage&#xA;out event displayNormalDrinkSelected:string&#xA;out event displaySpecialDrinkSelected:string&#xA;out event displayErrorMessage:string&#xA;out event updateIntensiteCafe:string&#xA;out event updateTailleDeLaTasse :string&#xA;out event updateDeuxTasseAlafois:boolean&#xA;out event displayPrepBoissonDone:string&#xA;out event displayMessage:string&#xA;out event displayPreparationBoisson:string&#xA;out event updateProgressBarCafe:real&#xA;out event updateProgressBarLait:real&#xA;out event updateProgressBar:real&#xA;out event displayProgMaintNettoyage&#xA;out event displayProgMaintDetartrage&#xA;out event displayProgMaintCalcNclean&#xA;out event displayProgMaintMousseLait&#xA;out event updateMessage:string&#xA;out event displayMenu&#xA;out event updateMenu:string&#xA;out event displayMenuNetEntretien &#xA;out event updateMenuNetEntretien:string&#xA;//interface screenText:&#xA;&#x9;&#xA;//interface CMHMI:&#xA;&#xA;//in event Off &#xA;//in event StartStop&#xA;//in event userEvent : string&#xA;//in event bacCollectorVider&#xA;//in event grainsAjouter : real&#xA;//in event filtreRemplacer&#xA;&#xA;//in event selectionLangue : string&#xA;//in event reglageIntensiteCafe : string&#xA;//in event reglageTailleDeLaTasse : string&#xA;//in event boissonsSpeciales : string&#xA;//in event reservoirRempli : integer&#xA;//operation show(a : string) : void&#xA;//operation showEcranTexte(a : string) : void&#xA;//operation showDone(a : string) : void&#xA;//operation DisplayProgresBar()&#xA;&#xA;//interface CoffeeMachine:&#xA;//in event setTemEau : integer&#xA;//var maxTempEau : integer = 95&#xA;//var minTempEau : integer = 20&#xA;//var masseGrainCafe : integer = 200&#xA;//var intensiteCafe : string = &quot;normal&quot;&#xA;//var tailleDeLaTasse : integer = 15&#xA;//var tempEau : integer &#xA;//var deuxTasseAlafois : boolean = false&#xA;//var tempsArretAuto : integer = 90&#xA;&#xA;//operation getIntensiteCafe(a : string) : integer&#xA;//operation getTailleDeLaTasse(a : string) : integer&#xA;//operation startHeating() : void&#xA;//operation stopHeating() : void&#xA;//operation startMouture() : void&#xA;//operation stopMouture() : void&#xA;//operation startPumping() : void&#xA;//operation stopPumping() : void&#xA;//operation updateHeating(a : integer) : void&#xA;&#xA;internal:&#xA;var specialDrinkInt : integer=1&#xA;var specialDrink : string=&quot;eau chaude&quot;&#xA;var langueInt: integer= 1&#xA;var langue : string=&quot;deutsch&quot;&#xA;var userInput : string&#xA;var intensiteCafeInt : integer= 1&#xA;var intensiteCafe : string = &quot;fort&quot;&#xA;var tailleDeLaTasseInt : integer = 1&#xA;var tailleDeLaTasse : string= &quot;petit&quot;&#xA;var tailleDeLaTasseMl : integer&#xA;var tailleTassePetit : integer=30&#xA;var tailleTasseMoyen : integer=60&#xA;var tailleTasseGrand : integer=120&#xA;var maxTempEau : integer = 95&#xA;var miseEnService : boolean = true&#xA;var processing : boolean = false&#xA;var step : integer = 0&#xA;var nbreBoisson : integer&#xA;var nbreBoissonAuCafe: integer&#xA;var volumeEauUtilise : real &#xA;var masseGrain:integer=300&#xA;var flotteurBacCollecteurMax : boolean=false&#xA;var isNettoyage : boolean&#xA;var isDetartrage : boolean &#xA;var isCalcnClean :boolean &#xA;var isFilterChange : boolean&#xA;var boissonServi : boolean = false&#xA;var arretAumatique : boolean&#xA;var deuxTasseAlafois : boolean = false&#xA;var tempsArretAuto : integer = 90&#xA;var timer : real=0.0&#xA;var filtreAeau : boolean = false&#xA;var solutionDetartre : integer=0&#xA;var menuInt : integer=1&#xA;var menu : string=&quot;temperature du cafe&quot;&#xA;var masseCafe:integer&#xA;var netEntretienInt : integer=1&#xA;var isReservoirEmpty:boolean&#xA;var isViderBacCollector:boolean&#xA;var isGrainsAjouter:boolean&#xA;var masseCafeUtiliser:integer&#xA;&#xA;//var netoyerDans:integer&#xA;//var detartrageDans : integer &#xA;//var grainsDetecter : boolean=true&#xA;//var flotteurReserEauMin : boolean=false&#xA; &#xA;&#xA;&#xA;  &#xA;always / isNettoyage =nbreBoissonAuCafe==30 &#xA;always / isDetartrage = filtreAeau?nbreBoisson==120:nbreBoisson==60 &#xA;always / isCalcnClean = isNettoyage&amp;&amp;isDetartrage &#xA;always / isFilterChange = volumeEauUtilise>=50000&#xA;always/isReservoirEmpty=volumeEau&lt;=0&#xA;always/isGrainsAjouter=masseGrain&lt;=0&#xA;always/isViderBacCollector=(masseCafeUtiliser>=300||flotteurBacCollecteurMax)&#xA;always/masseCafe=(intensiteCafe==&quot;tresdoux&quot;?4:(intensiteCafe==&quot;doux&quot;?6:(intensiteCafe==&quot;normal&quot;?8:(intensiteCafe==&quot;tresfort&quot;?16:(intensiteCafe==&quot;doubleshortfort&quot;?14:(intensiteCafe==&quot;doubleshortfort+&quot;?16:(intensiteCafe==&quot;comp.poudre&quot;?0:14)))))))&#xA;always/tailleDeLaTasseMl=(tailleDeLaTasse==&quot;moyen&quot;?tailleTasseMoyen:(tailleDeLaTasse==&quot;grand&quot;?tailleTasseGrand:tailleTassePetit))&#xA;//always / userInput =&quot;none&quot;&#xA;//CMHMI.userEvent/userInput=valueof(CMHMI.userEvent)&#xA;bacCollectorVider/masseCafeUtiliser=0;flotteurBacCollecteurMax=false&#xA;reservoirRempli/volumeEauUtilise+=valueof(reservoirRempli)&#xA;grainsAjouter/masseGrain+=valueof(grainsAjouter) &#xA;[ volumeEau&lt;=0]/ volumeEau=0&#xA;[ masseGrain&lt;=0]/ masseGrain=0&#xA;[specialDrinkInt>6]/specialDrinkInt=1&#xA;[langueInt>3]/langueInt=1&#xA;navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Choix_de_la_langue)]/langue=(langueInt==2?&quot;english&quot;:(langueInt==3?&quot;deutsch&quot;:&quot;francais&quot;))&#xA;selectSpecialDrink/specialDrink=(specialDrinkInt==2?&quot;laitchaud&quot;:(specialDrinkInt==3?&quot;verseuse&quot;:(specialDrinkInt==4?&quot;americano&quot;:(specialDrinkInt==5?&quot;flatwhite&quot;:(specialDrinkInt==6?&quot;cafecortado&quot;:&quot;eauchaude&quot;)))))&#xA;[(intensiteCafeInt>8)&amp;&amp;(tailleDeLaTasseMl>=35 || !deuxTasseAlafois)]/intensiteCafeInt=1&#xA;IntensiteCafeButtonClick[tailleDeLaTasseMl>=35 || !deuxTasseAlafois]/intensiteCafe=(intensiteCafeInt==2?&quot;tresdoux&quot;:(intensiteCafeInt==3?&quot;doux&quot;:(intensiteCafeInt==4?&quot;normal&quot;:(intensiteCafeInt==5?&quot;tresfort&quot;:(intensiteCafeInt==6?&quot;doubleshortfort&quot;:(intensiteCafeInt==7?&quot;doubleshortfort+&quot;:(intensiteCafeInt==8?&quot;comp.poudre&quot;:&quot;fort&quot;)))))))&#xA;[(intensiteCafeInt>6)&amp;&amp;(tailleDeLaTasseMl&lt;35 || deuxTasseAlafois)]/intensiteCafeInt=1&#xA;IntensiteCafeButtonClick[tailleDeLaTasseMl&lt;35 || deuxTasseAlafois]/intensiteCafe=(intensiteCafeInt==2?&quot;tresdoux&quot;:(intensiteCafeInt==3?&quot;doux&quot;:(intensiteCafeInt==4?&quot;normal&quot;:(intensiteCafeInt==5?&quot;tresfort&quot;:(intensiteCafeInt==6?&quot;comp.poudre&quot;:&quot;fort&quot;)))))&#xA;[tailleDeLaTasseInt>3]/tailleDeLaTasseInt=1&#xA;tailleDeLaTasseButtonClick/tailleDeLaTasse=(tailleDeLaTasseInt==2?&quot;moyen&quot;:(tailleDeLaTasseInt==3?&quot;grand&quot;:&quot;petit&quot;))&#xA;[menuInt>14]/menuInt=1&#xA;navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.MenuOuvert_)]/menu=(menuInt==2?&quot;Nettoyage et entretien&quot;:(menuInt==3?&quot;Informations relatives aux programmes de maintenance&quot;:(menuInt==4?&quot;Proportion lait/cafe&quot;:(menuInt==4?&quot;Favori&quot;:(menuInt==5?&quot;Regler qte boissons&quot;:(menuInt==6?&quot;Durete de l'eau&quot;:(menuInt==7?&quot;Arret automaque&quot;:(menuInt==8?&quot;Filtre a eau&quot;:(menuInt==9?&quot;Langues&quot;:(menuInt==10?&quot;protection contre le gel&quot;:(menuInt==11?&quot;Bip sonore&quot;:(menuInt==12?&quot;Nbre de boissons&quot;:(menuInt==13?&quot;Prereglages usine&quot;:&quot;temperature du cafe&quot;)))))))))))))&#xA;[netEntretienInt >4]/netEntretienInt =1&#xA;navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.NettoyageEtEntretien)]/userInput=(netEntretienInt==1?&quot;Nettoyer le mousseur de lait&quot;:(netEntretienInt==2?&quot;Detartrer&quot;:(netEntretienInt==3?&quot;Nettoyer&quot;:&quot;calc'nClean&quot;)))&#xA;&#xA;/* we simulate the heater here */&#xA;every 200ms / updateHeating(2)&#xA;&#xA;/* processing user feedback  */&#xA;every 500ms [processing]/ show(&quot;.&quot;)&#xA;&#xA;//CoffeeMachine.setTemEau/CoffeeMachine.tempEau=valueof(CoffeeMachine.setTemEau)" name="MachineAcafeProfessionnelleCtrl">
+  <sgraph:Statechart xmi:id="_wMrvwF4oEeuueIYcMJGC3A" specification="// Use the event driven execution model.&#xA;// Switch to cycle based behavior&#xA;// by specifying '@CycleBased(200)'.&#xA;@EventDriven&#xA;&#xA;// Use @SuperSteps(yes) to enable&#xA;// super step semantics.&#xA;@SuperSteps(no)&#xA;&#xA;interface:&#xA;&#x9;// Define events and variables here. &#xA;&#x9;// Use CTRL + Space for content assist.&#xA;&#x9;in event selectSpecialDrink&#xA;&#x9;in event selectNormalDrink:string&#xA;    in event navButtonClick&#xA;    in event IntensiteCafeButtonClick&#xA;    in event tailleDeLaTasseButtonClick&#xA;    in event deuxTasseAlafoisButtonClick&#xA;    in event retourButtonClick &#xA;    in event StartStop&#xA;    in event bacCollectorVider&#xA;    in event grainsAjouter :integer&#xA;    in event filtreRemplacer&#xA;    in event reservoirRempli : integer&#xA;    in event ajoutSolutionDetartre:integer&#xA;    in event menuButtonClick&#xA;    in event okButtonClick&#xA;    in event favButtonClick&#xA;    operation startHeating() : void&#xA;    operation stopHeating() : void&#xA;    operation startMouture(a:string) : void&#xA;    operation stopMouture(a:string) : void&#xA;    operation startPumping(a:string) : void&#xA;    operation stopPumping(a:string) : void&#xA;    operation updateHeating(a : integer) : void&#xA;    operation show(a : string) : void&#xA;    var tempEau : integer &#xA;    var minTempEau : integer = 20&#xA;    var volumeEau : integer = 2000&#xA;    var isHeating : boolean&#xA;    var boissonFav1:string=&quot;expressomacch&quot;&#xA;    var boissonFav2:string=&quot;expressomacch&quot;&#xA;    var boissonFavIntensiteCafe1:string=&quot;normal&quot;&#xA;    var boissonFavIntensiteCafe2:string=&quot;normal&quot;&#xA;    var boissonFavTailleTasse1:integer=120&#xA;    var boissonFavTailleTasseString1:string=&quot;moyen&quot;&#xA;    var boissonFavTailleTasse2:integer=120&#xA;    var boissonFavTailleTasseString2:string=&quot;moyen&quot;&#xA;    var boissonFavTem1:string=&quot;haute&quot;&#xA;    var boissonFavTem2:string=&quot;haute&quot;&#xA;    var boissonFavRatioLaitCafe1:integer=70&#xA;    var boissonFavDeuxTassesALaFois1:boolean=false&#xA;    var boissonFavDeuxTassesALaFois2:boolean=false&#xA;    var boissonFavRatioLaitCafe2:integer=70&#xA;    &#xA;&#xA;interface Screen:&#xA;out event displayOff&#xA;out event displayChoixLangue : string&#xA;out event displayLogo&#xA;out event displayHeatingUp:integer&#xA;out event displayRincage&#xA;out event displayNormalDrinkSelected:string&#xA;out event displaySpecialDrinkSelected:string&#xA;out event displayErrorMessage:string&#xA;out event updateIntensiteCafe:string&#xA;out event updateTailleDeLaTasse :string&#xA;out event updateDeuxTasseAlafois:boolean&#xA;out event displayPrepBoissonDone:string&#xA;out event displayMessage:string&#xA;out event displayPreparationBoisson:string&#xA;out event updateProgressBarCafe:real&#xA;out event updateProgressBarLait:real&#xA;out event updateProgressBar:real&#xA;out event displayProgMaintNettoyage&#xA;out event displayProgMaintDetartrage&#xA;out event displayProgMaintCalcNclean&#xA;out event displayProgMaintMousseLait&#xA;out event updateMessage:string&#xA;out event displayMenu : string&#xA;out event updateMenu:string&#xA;out event displayMenuNetEntretien &#xA;out event updateMenuNetEntretien:string&#xA;out event displayChoixBoissonFavori:string&#xA;out event displaySelectTailleIntensiteBoissonFav:string&#xA;out event updateTailleTasseBoiFav:integer&#xA;out event displayAjusterTailleTasseFav:string&#xA;out event displaySelectTailleTasseFav:string&#xA;out event displayTemperatureBoissonFav:string&#xA;out event displaySelectTemperatureBoissonFav:string&#xA;out event displayRatioLaitCafeFav:string&#xA;out event displaySelectRatioLaitafeFav:string&#xA;out event updateTemperatureBoisson:string&#xA;out event updateRatioLaitCafe:integer&#xA;out event updateNumfavBoisson:string&#xA;out event updateIsHandlingBoissonFav:boolean&#xA;out event beepSound&#xA;//interface screenText:&#xA;&#x9;&#xA;//interface CMHMI:&#xA;&#xA;//in event Off &#xA;//in event StartStop&#xA;//in event userEvent : string&#xA;//in event bacCollectorVider&#xA;//in event grainsAjouter : real&#xA;//in event filtreRemplacer&#xA;&#xA;//in event selectionLangue : string&#xA;//in event reglageIntensiteCafe : string&#xA;//in event reglageTailleDeLaTasse : string&#xA;//in event boissonsSpeciales : string&#xA;//in event reservoirRempli : integer&#xA;//operation show(a : string) : void&#xA;//operation showEcranTexte(a : string) : void&#xA;//operation showDone(a : string) : void&#xA;//operation DisplayProgresBar()&#xA;&#xA;//interface CoffeeMachine:&#xA;//in event setTemEau : integer&#xA;//var maxTempEau : integer = 95&#xA;//var minTempEau : integer = 20&#xA;//var masseGrainCafe : integer = 200&#xA;//var intensiteCafe : string = &quot;normal&quot;&#xA;//var tailleDeLaTasse : integer = 15&#xA;//var tempEau : integer &#xA;//var deuxTasseAlafois : boolean = false&#xA;//var tempsArretAuto : integer = 90&#xA;&#xA;//operation getIntensiteCafe(a : string) : integer&#xA;//operation getTailleDeLaTasse(a : string) : integer&#xA;//operation startHeating() : void&#xA;//operation stopHeating() : void&#xA;//operation startMouture() : void&#xA;//operation stopMouture() : void&#xA;//operation startPumping() : void&#xA;//operation stopPumping() : void&#xA;//operation updateHeating(a : integer) : void&#xA;&#xA;internal:&#xA;var specialDrinkInt : integer=1&#xA;var specialDrink : string=&quot;eauchaude&quot;&#xA;var langueInt: integer= 1&#xA;var langue : string=&quot;deutsch&quot;&#xA;var userInput : string&#xA;var intensiteCafeInt : integer= 1&#xA;var intensiteCafe : string = &quot;fort&quot;&#xA;var tailleDeLaTasseInt : integer = 1&#xA;var tailleDeLaTasse : string= &quot;petit&quot;&#xA;var tailleDeLaTasseMl : integer&#xA;var tailleTassePetit : integer=30&#xA;var tailleTasseMoyen : integer=60&#xA;var tailleTasseGrand : integer=120&#xA;var maxTempEau : integer = 95&#xA;var miseEnService : boolean = true&#xA;var processing : boolean = false&#xA;var step : integer = 0&#xA;var nbreBoisson : integer&#xA;var nbreBoissonAuCafe: integer&#xA;var volumeEauUtilise : real &#xA;var masseGrain:integer=300&#xA;var flotteurBacCollecteurMax : boolean=false&#xA;var isNettoyage : boolean&#xA;var isDetartrage : boolean &#xA;var isCalcnClean :boolean &#xA;var isFilterChange : boolean&#xA;var boissonServi : boolean = false&#xA;var arretAumatique : boolean&#xA;var deuxTasseAlafois : boolean = false&#xA;var tempsArretAuto : integer = 90&#xA;var timer : real=0.0&#xA;var filtreAeau : boolean = false&#xA;var solutionDetartre : integer=0&#xA;var menuInt : integer=1&#xA;var menu : string=&quot;nettoyageEntretien&quot;&#xA;var masseCafe:integer&#xA;var netEntretienInt : integer=1&#xA;var isReservoirEmpty:boolean&#xA;var isViderBacCollector:boolean&#xA;var isGrainsAjouter:boolean&#xA;var masseCafeUtiliser:integer&#xA;var tailleTasseBoiFavInt:integer=1&#xA;var tailleTasseBoiFav:integer=120&#xA;var tempBoissonFavInt:integer=1&#xA;var tempBoissonFav:string=&quot;normale&quot;&#xA;var ratioLaitCafeInt:integer=1&#xA;var ratioLaitCafe:integer=50&#xA;var favori:integer=1&#xA;var favoriInt:integer=1&#xA;var boissonFav:string&#xA;var fromMenuFav:boolean=false&#xA;var beep:boolean=true&#xA;&#xA;//var netoyerDans:integer&#xA;//var detartrageDans : integer &#xA;//var grainsDetecter : boolean=true&#xA;//var flotteurReserEauMin : boolean=false&#xA;  &#xA;always / isNettoyage =nbreBoissonAuCafe==30 &#xA;always / isDetartrage = filtreAeau?nbreBoisson==120:nbreBoisson==60 &#xA;always / isCalcnClean = isNettoyage&amp;&amp;isDetartrage &#xA;always / isFilterChange = volumeEauUtilise>=50000&#xA;always/isReservoirEmpty=volumeEau&lt;=0&#xA;always/isGrainsAjouter=masseGrain&lt;=0&#xA;always/isViderBacCollector=(masseCafeUtiliser>=300||flotteurBacCollecteurMax)&#xA;always/masseCafe=(intensiteCafe==&quot;tresdoux&quot;?4:(intensiteCafe==&quot;doux&quot;?6:(intensiteCafe==&quot;normal&quot;?8:(intensiteCafe==&quot;tresfort&quot;?16:(intensiteCafe==&quot;doubleshotfort&quot;?14:(intensiteCafe==&quot;doubleshotfort+&quot;?16:(intensiteCafe==&quot;comp.poudre&quot;?0:14)))))))&#xA;always/tailleDeLaTasseMl=(tailleDeLaTasse==&quot;moyen&quot;?tailleTasseMoyen:(tailleDeLaTasse==&quot;grand&quot;?tailleTasseGrand:tailleTassePetit))&#xA;//always / userInput =&quot;none&quot;&#xA;//CMHMI.userEvent/userInput=valueof(CMHMI.userEvent)&#xA;[favori>2]/favori=1&#xA;[favoriInt>2]/favoriInt=1&#xA;bacCollectorVider/masseCafeUtiliser=0;flotteurBacCollecteurMax=false&#xA;reservoirRempli/volumeEauUtilise+=valueof(reservoirRempli)&#xA;grainsAjouter/masseGrain+=valueof(grainsAjouter) &#xA;[ volumeEau&lt;=0]/ volumeEau=0&#xA;[ masseGrain&lt;=0]/ masseGrain=0&#xA;[specialDrinkInt>6]/specialDrinkInt=1&#xA;[langueInt>3]/langueInt=1&#xA;navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Choix_de_la_langue)]/langue=(langueInt==2?&quot;english&quot;:(langueInt==3?&quot;deutsch&quot;:&quot;francais&quot;))&#xA;selectSpecialDrink/specialDrink=(specialDrinkInt==2?&quot;laitchaud&quot;:(specialDrinkInt==3?&quot;verseuse&quot;:(specialDrinkInt==4?&quot;americano&quot;:(specialDrinkInt==5?&quot;flatwhite&quot;:(specialDrinkInt==6?&quot;cafecortado&quot;:&quot;eauchaude&quot;)))))&#xA;[(intensiteCafeInt>8)&amp;&amp;(tailleDeLaTasseMl>=35 || !deuxTasseAlafois)]/intensiteCafeInt=1&#xA;IntensiteCafeButtonClick[tailleDeLaTasseMl>=35 || !deuxTasseAlafois]/intensiteCafe=(intensiteCafeInt==2?&quot;tresdoux&quot;:(intensiteCafeInt==3?&quot;doux&quot;:(intensiteCafeInt==4?&quot;normal&quot;:(intensiteCafeInt==5?&quot;tresfort&quot;:(intensiteCafeInt==6?&quot;doubleshotfort&quot;:(intensiteCafeInt==7?&quot;doubleshotfort+&quot;:(intensiteCafeInt==8?&quot;comp.poudre&quot;:&quot;fort&quot;)))))))&#xA;[(intensiteCafeInt>6)&amp;&amp;(tailleDeLaTasseMl&lt;35 || deuxTasseAlafois)]/intensiteCafeInt=1&#xA;IntensiteCafeButtonClick[tailleDeLaTasseMl&lt;35 || deuxTasseAlafois]/intensiteCafe=(intensiteCafeInt==2?&quot;tresdoux&quot;:(intensiteCafeInt==3?&quot;doux&quot;:(intensiteCafeInt==4?&quot;normal&quot;:(intensiteCafeInt==5?&quot;tresfort&quot;:(intensiteCafeInt==6?&quot;comp.poudre&quot;:&quot;fort&quot;)))))&#xA;[tailleDeLaTasseInt>3]/tailleDeLaTasseInt=1&#xA;tailleDeLaTasseButtonClick/tailleDeLaTasse=(tailleDeLaTasseInt==2?&quot;moyen&quot;:(tailleDeLaTasseInt==3?&quot;grand&quot;:&quot;petit&quot;))&#xA;[menuInt>13]/menuInt=1&#xA;[tailleTasseBoiFavInt>5]/tailleTasseBoiFavInt=1 &#xA;[tempBoissonFavInt>3]/tempBoissonFavInt=1&#xA;[ratioLaitCafeInt>5]/ratioLaitCafeInt=1&#xA;//navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.MenuOuvert_)]/menu=(menuInt==2?&quot;nettoyageEntretien&quot;:(menuInt==3?&quot;Informations relatives aux programmes de maintenance&quot;:(menuInt==4?&quot;Proportion lait/cafe&quot;:(menuInt==4?&quot;Favori&quot;:(menuInt==5?&quot;Regler qte boissons&quot;:(menuInt==6?&quot;Durete de l'eau&quot;:(menuInt==7?&quot;Arret automaque&quot;:(menuInt==8?&quot;Filtre a eau&quot;:(menuInt==9?&quot;Langues&quot;:(menuInt==10?&quot;protection contre le gel&quot;:(menuInt==11?&quot;Bip sonore&quot;:(menuInt==12?&quot;Nbre de boissons&quot;:(menuInt==13?&quot;Prereglages usine&quot;:&quot;temperature du cafe&quot;)))))))))))))&#xA;navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.MenuOuvert_)]/menu=(menuInt==2?&quot;reglerQteBoissons&quot;:(menuInt==3?&quot;proportionLaitCafe&quot;:(menuInt==4?&quot;favori&quot;:(menuInt==5?&quot;dureteEau&quot;:(menuInt==6?&quot;arretAutomaque&quot;:(menuInt==7?&quot;temperatureCafe&quot;:(menuInt==8?&quot;filtreEau&quot;:(menuInt==9?&quot;langues&quot;:(menuInt==10?&quot;protectionContreGel&quot;:(menuInt==11?&quot;bipSonore&quot;:(menuInt==12?&quot;nbreBoissons&quot;:(menuInt==13?&quot;prereglagesUsine&quot;:&quot;nettoyageEntretien&quot;))))))))))))&#xA;[netEntretienInt >5]/netEntretienInt =1&#xA;[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.EnregistrementBoissonFavorite)&amp;&amp;(favori==2)]/boissonFav2=boissonFav;boissonFavIntensiteCafe2=intensiteCafe;boissonFavTailleTasse2=tailleTasseBoiFav;boissonFavTem2=tempBoissonFav;boissonFavRatioLaitCafe2=ratioLaitCafe;boissonFavTailleTasseString2=tailleDeLaTasse&#xA;navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.NettoyageEtEntretien)]/userInput=(netEntretienInt==2?&quot;detartrer&quot;:(netEntretienInt==3?&quot;nettoyer&quot;:(netEntretienInt==4?&quot;calcnClean&quot;:&quot;nettoyerMousseurLait&quot;)))&#xA;navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.selectTailleTasse)]/tailleTasseBoiFav=(tailleTasseBoiFavInt==2?140:(tailleTasseBoiFavInt==3?160:(tailleTasseBoiFavInt==4?180:(tailleTasseBoiFavInt==5?200:120))))&#xA;navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.SelectTemperatureBoisson)]/tempBoissonFav=(tempBoissonFavInt==2?&quot;haute&quot;:(tempBoissonFavInt==3?&quot;maxi&quot;:&quot;normale&quot;))&#xA;navButtonClick[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.selectRatioLaitCafe)]/ratioLaitCafe=(ratioLaitCafeInt==2?60:(ratioLaitCafeInt==3?70:(ratioLaitCafeInt==4?80:(ratioLaitCafeInt==5?90:50))))&#xA;[active(MachineAcafeProfessionnelleCtrl.R1.On.R1.Menu.R1.EnregistrementBoissonFavorite)&amp;&amp;(favori==1)]/boissonFav1=boissonFav;boissonFavIntensiteCafe1=intensiteCafe;boissonFavTailleTasse1=tailleTasseBoiFav;boissonFavTem1=tempBoissonFav;boissonFavRatioLaitCafe1=ratioLaitCafe;boissonFavTailleTasseString1=tailleDeLaTasse&#xA;&#xA;/* we simulate the heater here */&#xA;every 200ms / updateHeating(2)&#xA;&#xA;/* processing user feedback  */&#xA;every 500ms [processing]/ show(&quot;.&quot;)&#xA;&#xA;//CoffeeMachine.setTemEau/CoffeeMachine.tempEau=valueof(CoffeeMachine.setTemEau)" name="MachineAcafeProfessionnelleCtrl">
     <regions xmi:id="_1zjRoF4oEeuueIYcMJGC3A" name="R1">
       <vertices xsi:type="sgraph:Entry" xmi:id="_1zjRoV4oEeuueIYcMJGC3A">
         <outgoingTransitions xmi:id="_1zjRol4oEeuueIYcMJGC3A" target="_1zjRo14oEeuueIYcMJGC3A"/>
@@ -10,23 +10,23 @@
       </vertices>
       <vertices xsi:type="sgraph:State" xmi:id="_1zj4sl4oEeuueIYcMJGC3A" specification="entry / show(&quot;** Welcome to YAKINDU Coffee Maker **\n&quot;)" name="On">
         <regions xmi:id="_1zj4tF4oEeuueIYcMJGC3A" name="R1">
-          <vertices xsi:type="sgraph:State" xmi:id="_1zj4tV4oEeuueIYcMJGC3A" specification="entry / raise Screen.displayChoixLangue:langue&#xD;&#xA;navButtonClick/langueInt++; &#xD;&#xA;raise Screen.displayChoixLangue:langue&#xD;&#xA;" name="Choix de la langue" incomingTransitions="_10By3V4oEeuueIYcMJGC3A">
+          <vertices xsi:type="sgraph:State" xmi:id="_1zj4tV4oEeuueIYcMJGC3A" specification="entry / raise Screen.displayChoixLangue:langue&#xD;&#xA;navButtonClick/langueInt++; &#xD;&#xA;raise Screen.displayChoixLangue:langue&#xD;&#xA;navButtonClick[beep]/raise Screen.beepSound" name="Choix de la langue" incomingTransitions="_10By3V4oEeuueIYcMJGC3A">
             <outgoingTransitions xmi:id="_1zkfwF4oEeuueIYcMJGC3A" specification="StartStop&#xD;&#xA;[langue==&quot;english&quot;||&#xD;&#xA;langue==&quot;deutsch&quot;||&#xD;&#xA;langue==&quot;francais&quot;]" target="_1zkf014oEeuueIYcMJGC3A"/>
           </vertices>
           <vertices xsi:type="sgraph:State" xmi:id="_1zkf014oEeuueIYcMJGC3A" specification="entry / raise Screen.displayLogo" name="DisplayLogo" incomingTransitions="_1zkfwF4oEeuueIYcMJGC3A">
             <outgoingTransitions xmi:id="_1zlG0l4oEeuueIYcMJGC3A" specification="after 3 s" target="_1zlG114oEeuueIYcMJGC3A"/>
           </vertices>
           <vertices xsi:type="sgraph:State" xmi:id="_1zlG114oEeuueIYcMJGC3A" specification="entry / startHeating();show(&quot;* heating\n&quot;);processing = true&#xD;&#xA;every 100 ms/raise Screen.displayHeatingUp:tempEau&#xD;&#xA;exit / processing = false" name="HeatingUp" incomingTransitions="_1zlG0l4oEeuueIYcMJGC3A _10By414oEeuueIYcMJGC3A">
-            <outgoingTransitions xmi:id="_1zlG7F4oEeuueIYcMJGC3A" specification="[(tempEau >= &#xD;&#xA;maxTempEau)&amp;&amp;&#xD;&#xA;boissonServi]&#xD;&#xA;// set tempEau in &#xD;&#xA;//simulation manually" target="_1zlt4F4oEeuueIYcMJGC3A"/>
+            <outgoingTransitions xmi:id="_1zlG7F4oEeuueIYcMJGC3A" specification="[(tempEau >= &#xD;&#xA;maxTempEau)&amp;&amp;&#xD;&#xA;boissonServi]/&#xD;&#xA;arretAumatique=false&#xD;&#xA;// set tempEau in &#xD;&#xA;//simulation manually" target="_1zlt4F4oEeuueIYcMJGC3A"/>
             <outgoingTransitions xmi:id="_TEqyAGA8Eeuz3cXumeXZmg" specification="[(tempEau >= &#xD;&#xA;maxTempEau)&#xD;&#xA;&amp;&amp;!boissonServi]" target="_G1HIEGBAEeuz3cXumeXZmg"/>
           </vertices>
           <vertices xsi:type="sgraph:State" xmi:id="_1zlt4F4oEeuueIYcMJGC3A" specification="entry / raise Screen.displayRincage;&#xD;&#xA;&#x9;processing = true&#xD;&#xA;exit / processing = false; &#xD;&#xA;miseEnService = false" name="Rincage" incomingTransitions="_1zlG7F4oEeuueIYcMJGC3A _1z_WoV4oEeuueIYcMJGC3A _SBEqMGBAEeuz3cXumeXZmg">
             <outgoingTransitions xmi:id="_1zlt-V4oEeuueIYcMJGC3A" specification="after 3 s[!arretAumatique]" target="_1zmU914oEeuueIYcMJGC3A"/>
             <outgoingTransitions xmi:id="_1zmU8F4oEeuueIYcMJGC3A" specification="after 3 s [arretAumatique]" target="_1zjRo14oEeuueIYcMJGC3A"/>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_1zmU914oEeuueIYcMJGC3A" specification="entry / raise Screen.displayNormalDrinkSelected:&quot;expresso&quot;;userInput=&quot;expresso&quot; selectNormalDrink/raise Screen.displayNormalDrinkSelected:&#xD;&#xA;valueof(selectNormalDrink);userInput=valueof(selectNormalDrink);raise Screen.updateDeuxTasseAlafois:false selectSpecialDrink/specialDrinkInt++;userInput=specialDrink;raise Screen.displayNormalDrinkSelected:userInput;raise Screen.updateDeuxTasseAlafois:false tailleDeLaTasseButtonClick/tailleDeLaTasseInt++;raise Screen.updateTailleDeLaTasse:tailleDeLaTasse;raise Screen.displayNormalDrinkSelected:&#xD;&#xA;userInput IntensiteCafeButtonClick/ intensiteCafeInt++;raise Screen.updateIntensiteCafe:intensiteCafe;raise Screen.displayNormalDrinkSelected:&#xD;&#xA;userInput deuxTasseAlafoisButtonClick[intensiteCafe!=&quot;comp.poudre&quot;]/raise Screen.updateDeuxTasseAlafois:true;deuxTasseAlafois=true; raise Screen.displayNormalDrinkSelected:userInput" name="MachinePreteAfonctionner" incomingTransitions="_1zlt-V4oEeuueIYcMJGC3A _1zxUJF4oEeuueIYcMJGC3A _1z_Wll4oEeuueIYcMJGC3A _10CZ1V4oEeuueIYcMJGC3A _1z_9qV4oEeuueIYcMJGC3A _MPXxUGBAEeuz3cXumeXZmg _FSDUcGNiEeu1l9fAyhnkWw">
+          <vertices xsi:type="sgraph:State" xmi:id="_1zmU914oEeuueIYcMJGC3A" specification="entry[fromMenuFav]/raise Screen.updateIsHandlingBoissonFav:true;userInput=((favori==1)?boissonFav1:boissonFav2);raise Screen.updateIntensiteCafe:((favori==1)?boissonFavIntensiteCafe1:boissonFavIntensiteCafe2);raise Screen.updateTailleDeLaTasse:((favori==1)?boissonFavTailleTasseString1:boissonFavTailleTasseString2);tailleDeLaTasseMl=((favori==1)?boissonFavTailleTasse1:boissonFavTailleTasse2);&#xD;&#xA;ratioLaitCafeInt=((favori==1)?boissonFavRatioLaitCafe1:boissonFavRatioLaitCafe2);raise Screen.updateNumfavBoisson:((favori==1)?&quot;favori1&quot;:&quot;favori2&quot;);raise Screen.displayNormalDrinkSelected:((favori==1)?boissonFav1:boissonFav2);raise Screen.updateDeuxTasseAlafois:deuxTasseAlafois=((favori==1)?boissonFavDeuxTassesALaFois1:boissonFavDeuxTassesALaFois2);favori++ &#xD;&#xA;entry[!fromMenuFav]/raise Screen.updateIsHandlingBoissonFav:false;userInput=&quot;expresso&quot;;raise Screen.updateIntensiteCafe:intensiteCafe;raise Screen.updateTailleDeLaTasse:tailleDeLaTasse;raise Screen.displayNormalDrinkSelected:&quot;expresso&quot;;raise Screen.updateDeuxTasseAlafois:deuxTasseAlafois=false selectNormalDrink/raise Screen.updateIsHandlingBoissonFav:false;raise Screen.displayNormalDrinkSelected:valueof(selectNormalDrink);userInput= valueof(selectNormalDrink);raise Screen.updateDeuxTasseAlafois:deuxTasseAlafois=false selectSpecialDrink/specialDrinkInt++;userInput=specialDrink;raise Screen.updateIsHandlingBoissonFav:false;raise Screen.displayNormalDrinkSelected:userInput;raise Screen.updateDeuxTasseAlafois:deuxTasseAlafois=false tailleDeLaTasseButtonClick/tailleDeLaTasseInt++;raise Screen.updateTailleDeLaTasse:tailleDeLaTasse;raise Screen.displayNormalDrinkSelected:&#xD;&#xA;userInput IntensiteCafeButtonClick/intensiteCafeInt++;raise Screen.updateIsHandlingBoissonFav:false;raise Screen.updateIntensiteCafe:&#xD;&#xA;intensiteCafe;raise Screen.displayNormalDrinkSelected:userInput deuxTasseAlafoisButtonClick[intensiteCafe!=&quot;comp.poudre&quot;]/raise Screen.updateDeuxTasseAlafois:deuxTasseAlafois=true;raise Screen.displayNormalDrinkSelected:userInput favButtonClick/raise Screen.updateIsHandlingBoissonFav:true;userInput=((favoriInt==1)?boissonFav1:boissonFav2);raise Screen.updateIntensiteCafe:((favoriInt==1)?boissonFavIntensiteCafe1:boissonFavIntensiteCafe2);raise Screen.updateTailleDeLaTasse:((favoriInt==1)?boissonFavTailleTasseString1:&#xD;&#xA;boissonFavTailleTasseString2);tailleDeLaTasseMl=((favoriInt==1)?boissonFavTailleTasse1:boissonFavTailleTasse2);ratioLaitCafeInt=((favoriInt==1)?boissonFavRatioLaitCafe1:boissonFavRatioLaitCafe2);raise Screen.updateNumfavBoisson:((favoriInt==1)?&quot;favori1&quot;:&quot;favori2&quot;);raise Screen.displayNormalDrinkSelected:((favoriInt==1)?boissonFav1:boissonFav2);show(((favoriInt==1)?&quot;bonjour&quot;:&quot;bonsoir&quot;));raise Screen.updateDeuxTasseAlafois:deuxTasseAlafois=((favoriInt==1)?boissonFavDeuxTassesALaFois1:boissonFavDeuxTassesALaFois2);favoriInt++ exit/fromMenuFav=false" name="MachinePreteAfonctionner" incomingTransitions="_1zlt-V4oEeuueIYcMJGC3A _1zxUJF4oEeuueIYcMJGC3A _1z_Wll4oEeuueIYcMJGC3A _10CZ1V4oEeuueIYcMJGC3A _1z_9qV4oEeuueIYcMJGC3A _MPXxUGBAEeuz3cXumeXZmg _FSDUcGNiEeu1l9fAyhnkWw _5VIpgGZhEeuW8pMXrA9rJA _XQhSEGh5Eeuz7K3JOa2hBg">
             <outgoingTransitions xmi:id="_1znjEF4oEeuueIYcMJGC3A" specification="after tempsArretAuto s /&#xD;&#xA;arretAumatique=true" target="_1z_WoF4oEeuueIYcMJGC3A"/>
-            <outgoingTransitions xmi:id="_1znjGl4oEeuueIYcMJGC3A" specification="StartStop [&#xD;&#xA;userInput==&quot;expresso&quot;||&#xD;&#xA;userInput==&quot;expressomacch&quot;|| &#xD;&#xA;userInput==&quot;cafe&quot;||&#xD;&#xA;userInput==&quot;cappuccino&quot;||&#xD;&#xA;userInput==&quot;lattemacchiato&quot;||&#xD;&#xA;userInput==&quot;cafeaulait&quot;||&#xD;&#xA;userInput==&quot;mousselait&quot;||&#xD;&#xA;userInput==&quot;eauchaude&quot;||&#xD;&#xA;userInput==&quot;laitchaud&quot;||&#xD;&#xA;userInput==&quot;verseuse&quot;||&#xD;&#xA;userInput==&quot;americano&quot;||&#xD;&#xA;userInput==&quot;flatwhite&quot;||&#xD;&#xA;userInput==&quot;cafecortado&quot;] " target="_1zwtFl4oEeuueIYcMJGC3A"/>
+            <outgoingTransitions xmi:id="_1znjGl4oEeuueIYcMJGC3A" specification="StartStop [&#xD;&#xA;userInput==&quot;expresso&quot;||&#xD;&#xA;userInput==&quot;expressomacch&quot;|| &#xD;&#xA;userInput==&quot;cafe&quot;||&#xD;&#xA;userInput==&quot;cappuccino&quot;||&#xD;&#xA;userInput==&quot;lattemacchiato&quot;||&#xD;&#xA;userInput==&quot;cafeaulait&quot;||&#xD;&#xA;userInput==&quot;mousselait&quot;||&#xD;&#xA;userInput==&quot;eauchaude&quot;||&#xD;&#xA;userInput==&quot;laitchaud&quot;||&#xD;&#xA;userInput==&quot;verseuse&quot;||&#xD;&#xA;userInput==&quot;americano&quot;||&#xD;&#xA;userInput==&quot;flatwhite&quot;||&#xD;&#xA;userInput==&quot;cafecortado&quot;]" target="_1zwtFl4oEeuueIYcMJGC3A"/>
             <outgoingTransitions xmi:id="_1zoxMF4oEeuueIYcMJGC3A" specification="[isNettoyage||&#xD;&#xA;isDetartrage||&#xD;&#xA;isCalcnClean]" target="_1z-IaF4oEeuueIYcMJGC3A"/>
             <outgoingTransitions xmi:id="_1zoxOF4oEeuueIYcMJGC3A" specification="[isViderBacCollector||&#xD;&#xA;isReservoirEmpty||&#xD;&#xA;isFilterChange||isGrainsAjouter]" target="_1z-vd14oEeuueIYcMJGC3A"/>
             <outgoingTransitions xmi:id="_1zoxQl4oEeuueIYcMJGC3A" specification="menuButtonClick" target="_10AkpF4oEeuueIYcMJGC3A"/>
@@ -43,25 +43,26 @@
                     <outgoingTransitions xmi:id="_1zrNc14oEeuueIYcMJGC3A" target="_1ztpt14oEeuueIYcMJGC3A"/>
                   </vertices>
                   <vertices xsi:type="sgraph:State" xmi:id="_1zrNdF4oEeuueIYcMJGC3A" specification="entry / startMouture(&quot;start mouture cafe&quot;)&#xD;&#xA;exit / stopMouture(&quot;stop mouture cafe&quot;)" name="Mouture des grains" incomingTransitions="_1ztpuF4oEeuueIYcMJGC3A _1ztCo14oEeuueIYcMJGC3A _1zu35l4oEeuueIYcMJGC3A _1ztp0F4oEeuueIYcMJGC3A _1zuQyF4oEeuueIYcMJGC3A">
-                    <outgoingTransitions xmi:id="_1zrNhl4oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*500 ms&#xD;&#xA;[intensiteCafe==&#xD;&#xA;&quot;doubleshot fort&quot;||&#xD;&#xA;intensiteCafe==&#xD;&#xA;&quot;doubleshot fort+&quot;]&#xD;&#xA;/step+=1" target="_1zsbqF4oEeuueIYcMJGC3A"/>
-                    <outgoingTransitions xmi:id="_1zr0lV4oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*500 ms&#xD;&#xA;[deuxTasseAlafois&#xD;&#xA;]/step+=1" target="_1zu31F4oEeuueIYcMJGC3A"/>
-                    <outgoingTransitions xmi:id="_1zr0o14oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*500 ms&#xD;&#xA;[(intensiteCafe!=&#xD;&#xA;&quot;doubleshot fort&quot;)&amp;&amp;&#xD;&#xA;(intensiteCafe!=&#xD;&#xA;&quot;doubleshot fort+&quot;)&amp;&amp;&#xD;&#xA;(deuxTasseAlafois&#xD;&#xA;!=true)]" target="_1zsbqF4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_1zrNhl4oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*250 ms&#xD;&#xA;[intensiteCafe==&#xD;&#xA;&quot;doubleshotfort&quot;||&#xD;&#xA;intensiteCafe==&#xD;&#xA;&quot;doubleshotfort+&quot;]&#xD;&#xA;/step+=1" target="_1zsbqF4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_1zr0lV4oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*250 ms&#xD;&#xA;[deuxTasseAlafois&#xD;&#xA;]/step+=1" target="_1zu31F4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_1zr0o14oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*500 ms&#xD;&#xA;[(intensiteCafe!=&#xD;&#xA;&quot;doubleshotfort&quot;)&amp;&amp;&#xD;&#xA;(intensiteCafe!=&#xD;&#xA;&quot;doubleshotfort+&quot;)&amp;&amp;&#xD;&#xA;(deuxTasseAlafois&#xD;&#xA;!=true)]" target="_1zsbqF4oEeuueIYcMJGC3A"/>
                   </vertices>
-                  <vertices xsi:type="sgraph:State" xmi:id="_1zsbqF4oEeuueIYcMJGC3A" specification="entry / startPumping(&quot;start pumping percolation 1 tasse &quot;)&#xD;&#xA;exit / stopPumping(&quot;stop pumpingpercolation 1 tasse &quot;)" name="Percolation une tasse de cafe" incomingTransitions="_1zrNhl4oEeuueIYcMJGC3A _1zr0o14oEeuueIYcMJGC3A _l9AzEGHTEeuXr8MghzM0VQ">
-                    <outgoingTransitions xmi:id="_1zsbul4oEeuueIYcMJGC3A" specification="after tailleDeLaTasseMl s" target="_1ztptl4oEeuueIYcMJGC3A"/>
-                    <outgoingTransitions xmi:id="_1ztCo14oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*500 ms&#xD;&#xA;[(intensiteCafe==&#xD;&#xA;&quot;doubleshot fort&quot;||&#xD;&#xA;intensiteCafe==&#xD;&#xA;&quot;doubleshot fort+&quot;)&#xD;&#xA;&amp;&amp;(step&lt;2)]" target="_1zrNdF4oEeuueIYcMJGC3A"/>
-                    <outgoingTransitions xmi:id="_1ztCu14oEeuueIYcMJGC3A" specification="after tailleDeLaTasseMl*500 ms&#xD;&#xA;[(intensiteCafe==&quot;doubleshot fort&quot;)||(&#xD;&#xA;intensiteCafe==&quot;doubleshot fort+&quot;)]" target="_1ztptl4oEeuueIYcMJGC3A"/>
+                  <vertices xsi:type="sgraph:State" xmi:id="_1zsbqF4oEeuueIYcMJGC3A" specification="entry / startPumping(&quot;start pumping percolation 1 tasse &quot;)&#xD;&#xA;exit / stopPumping(&quot;stop pumping percolation 1 tasse &quot;)" name="Percolation une tasse de cafe" incomingTransitions="_1zrNhl4oEeuueIYcMJGC3A _1zr0o14oEeuueIYcMJGC3A _l9AzEGHTEeuXr8MghzM0VQ">
+                    <outgoingTransitions xmi:id="_1zsbul4oEeuueIYcMJGC3A" specification="after tailleDeLaTasseMl s[intensiteCafe==&#xD;&#xA;&quot;comp.poudre&quot;]" target="_1ztptl4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_1ztCo14oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*250 ms&#xD;&#xA;[(intensiteCafe==&#xD;&#xA;&quot;doubleshotfort&quot;||&#xD;&#xA;intensiteCafe==&#xD;&#xA;&quot;doubleshotfort+&quot;)&#xD;&#xA;&amp;&amp;(step&lt;2)]" target="_1zrNdF4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_1ztCu14oEeuueIYcMJGC3A" specification="after tailleDeLaTasseMl*250 ms&#xD;&#xA;[(intensiteCafe==&quot;doubleshotfort&quot;)||(&#xD;&#xA;intensiteCafe==&quot;doubleshotfort+&quot;)]" target="_1ztptl4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_k0kDkGeBEeubguCCtaYkXw" specification="after tailleDeLaTasseMl*500 ms[(intensiteCafe!=&quot;doubleshotfort&quot;)&amp;&amp;(intensiteCafe!=&#xD;&#xA;&quot;doubleshotfort+&quot;)&amp;&amp;(deuxTasseAlafois!=true)&amp;&amp;(intensiteCafe!=&quot;comp.poudre&quot;)]" target="_1ztptl4oEeuueIYcMJGC3A"/>
                   </vertices>
-                  <vertices xsi:type="sgraph:Exit" xmi:id="_1ztptl4oEeuueIYcMJGC3A" incomingTransitions="_1zsbul4oEeuueIYcMJGC3A _1ztCu14oEeuueIYcMJGC3A _1zve4F4oEeuueIYcMJGC3A"/>
+                  <vertices xsi:type="sgraph:Exit" xmi:id="_1ztptl4oEeuueIYcMJGC3A" incomingTransitions="_1zsbul4oEeuueIYcMJGC3A _1ztCu14oEeuueIYcMJGC3A _1zve4F4oEeuueIYcMJGC3A _k0kDkGeBEeubguCCtaYkXw"/>
                   <vertices xsi:type="sgraph:Choice" xmi:id="_1ztpt14oEeuueIYcMJGC3A" incomingTransitions="_1zrNc14oEeuueIYcMJGC3A">
-                    <outgoingTransitions xmi:id="_1ztpuF4oEeuueIYcMJGC3A" specification="[intensiteCafe==&quot;doubleshot fort&quot;||&#xD;&#xA;intensiteCafe==&quot;doubleshot fort+&quot;]/step=0" target="_1zrNdF4oEeuueIYcMJGC3A"/>
-                    <outgoingTransitions xmi:id="_l9AzEGHTEeuXr8MghzM0VQ" specification="[intensiteCafe==&#xD;&#xA;&quot;comp. poudre&quot;]" target="_1zsbqF4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_1ztpuF4oEeuueIYcMJGC3A" specification="[intensiteCafe==&quot;doubleshotfort&quot;||&#xD;&#xA;intensiteCafe==&quot;doubleshotfort+&quot;]/step=0" target="_1zrNdF4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_l9AzEGHTEeuXr8MghzM0VQ" specification="[intensiteCafe==&#xD;&#xA;&quot;comp.poudre&quot;]" target="_1zsbqF4oEeuueIYcMJGC3A"/>
                     <outgoingTransitions xmi:id="_1ztp0F4oEeuueIYcMJGC3A" specification="[deuxTasseAlafois]/step=0" target="_1zrNdF4oEeuueIYcMJGC3A"/>
                     <outgoingTransitions xmi:id="_1zuQyF4oEeuueIYcMJGC3A" specification="" target="_1zrNdF4oEeuueIYcMJGC3A"/>
                   </vertices>
                   <vertices xsi:type="sgraph:State" xmi:id="_1zu31F4oEeuueIYcMJGC3A" specification="entry / startPumping(&quot;start pumping percolation 2 tasses &quot;)&#xD;&#xA;exit / stopPumping(&quot;stop pumping percolation 2 tasses &quot;)" name="Percolation deux tasses de cafe" incomingTransitions="_1zr0lV4oEeuueIYcMJGC3A">
-                    <outgoingTransitions xmi:id="_1zu35l4oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*500 ms&#xD;&#xA;[deuxTasseAlafois&#xD;&#xA;&amp;&amp;(step&lt;2)]" target="_1zrNdF4oEeuueIYcMJGC3A"/>
-                    <outgoingTransitions xmi:id="_1zve4F4oEeuueIYcMJGC3A" specification="after tailleDeLaTasseMl*500 ms&#xD;&#xA;[deuxTasseAlafois]" target="_1ztptl4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_1zu35l4oEeuueIYcMJGC3A" specification="after &#xD;&#xA;tailleDeLaTasseMl&#xD;&#xA;*250 ms&#xD;&#xA;[deuxTasseAlafois&#xD;&#xA;&amp;&amp;(step&lt;2)]" target="_1zrNdF4oEeuueIYcMJGC3A"/>
+                    <outgoingTransitions xmi:id="_1zve4F4oEeuueIYcMJGC3A" specification="after tailleDeLaTasseMl*250 ms&#xD;&#xA;[deuxTasseAlafois]" target="_1ztptl4oEeuueIYcMJGC3A"/>
                   </vertices>
                 </regions>
               </vertices>
@@ -260,22 +261,65 @@
             <outgoingTransitions xmi:id="_1z_WpV4oEeuueIYcMJGC3A" target="_1zjRo14oEeuueIYcMJGC3A"/>
           </vertices>
           <vertices xsi:type="sgraph:State" xmi:id="_1z_Wpl4oEeuueIYcMJGC3A" specification="entry/raise Screen.&#xD;&#xA;displayPrepBoissonDone:userInput&#xD;&#xA;exit/intensiteCafe=&quot;normal&quot;;&#xD;&#xA;deuxTasseAlafois=false" name="AfficherPreparationBoissonTerminer" incomingTransitions="_1zqmYF4oEeuueIYcMJGC3A">
-            <outgoingTransitions xmi:id="_1z_9qV4oEeuueIYcMJGC3A" specification="after 13 s" target="_1zmU914oEeuueIYcMJGC3A"/>
+            <outgoingTransitions xmi:id="_1z_9qV4oEeuueIYcMJGC3A" specification="after 5 s" target="_1zmU914oEeuueIYcMJGC3A"/>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_10AkpF4oEeuueIYcMJGC3A" specification="entry/raise Screen.&#xD;&#xA;displayMenu" name="Menu" incomingTransitions="_1zoxQl4oEeuueIYcMJGC3A _1z-vc14oEeuueIYcMJGC3A">
+          <vertices xsi:type="sgraph:State" xmi:id="_10AkpF4oEeuueIYcMJGC3A" specification="" name="Menu" incomingTransitions="_1zoxQl4oEeuueIYcMJGC3A _1z-vc14oEeuueIYcMJGC3A">
             <outgoingTransitions xmi:id="_10AkrV4oEeuueIYcMJGC3A" specification="#netEntMenu_exit>" target="_1zxUK14oEeuueIYcMJGC3A"/>
+            <outgoingTransitions xmi:id="_5VIpgGZhEeuW8pMXrA9rJA" specification="menuButtonClick" target="_1zmU914oEeuueIYcMJGC3A"/>
+            <outgoingTransitions xmi:id="_XQhSEGh5Eeuz7K3JOa2hBg" specification="#favMenu_exit>" target="_1zmU914oEeuueIYcMJGC3A"/>
             <regions xmi:id="_10Akr14oEeuueIYcMJGC3A" name="R1">
-              <vertices xsi:type="sgraph:State" xmi:id="_10AksF4oEeuueIYcMJGC3A" specification="navButtonClick/&#xD;&#xA;menuInt++;raise Screen.&#xD;&#xA;updateMenu:menu" name="MenuOuvert " incomingTransitions="_10BLuV4oEeuueIYcMJGC3A _10By114oEeuueIYcMJGC3A">
-                <outgoingTransitions xmi:id="_10AkvV4oEeuueIYcMJGC3A" specification="okButtonClick[menu==&#xD;&#xA;&quot;Nettoyage et entretien&quot;]" target="_10BLul4oEeuueIYcMJGC3A"/>
+              <vertices xsi:type="sgraph:State" xmi:id="_10AksF4oEeuueIYcMJGC3A" specification="entry/raise Screen.&#xD;&#xA;displayMenu:menu;menuInt++&#xD;&#xA;navButtonClick/menuInt++;raise &#xD;&#xA;Screen.displayMenu:menu&#xD;&#xA;retourButtonClick/raise menuButtonClick" name="MenuOuvert " incomingTransitions="_10BLuV4oEeuueIYcMJGC3A _10By114oEeuueIYcMJGC3A _G6Zc4GmlEeuSXueDl6JW0w">
+                <outgoingTransitions xmi:id="_10AkvV4oEeuueIYcMJGC3A" specification="okButtonClick[menu==&#xD;&#xA;&quot;nettoyageEntretien&quot;]" target="_10BLul4oEeuueIYcMJGC3A"/>
+                <outgoingTransitions xmi:id="_cAvYYGbPEeunINwP4PlkGA" specification="okButtonClick[&#xD;&#xA;menu==&quot;favori&quot;]" target="_awzagGbPEeunINwP4PlkGA"/>
               </vertices>
               <vertices xsi:type="sgraph:Entry" xmi:id="_10BLuF4oEeuueIYcMJGC3A">
                 <outgoingTransitions xmi:id="_10BLuV4oEeuueIYcMJGC3A" target="_10AksF4oEeuueIYcMJGC3A"/>
               </vertices>
-              <vertices xsi:type="sgraph:State" xmi:id="_10BLul4oEeuueIYcMJGC3A" specification="entry/raise Screen.&#xD;&#xA;displayMenuNetEntretien;&#xD;&#xA;userInput=&quot;Nettoyer&quot;&#xD;&#xA;navButtonClick/&#xD;&#xA;netEntretienInt++;raise Screen.&#xD;&#xA;updateMenuNetEntretien:userInput" name="NettoyageEtEntretien" incomingTransitions="_10AkvV4oEeuueIYcMJGC3A">
+              <vertices xsi:type="sgraph:State" xmi:id="_10BLul4oEeuueIYcMJGC3A" specification="entry/raise Screen.&#xD;&#xA;displayMenuNetEntretien;&#xD;&#xA;userInput=&quot;Nettoyer&quot;;show(menu)&#xD;&#xA;navButtonClick/&#xD;&#xA;netEntretienInt++;raise Screen.&#xD;&#xA;updateMenuNetEntretien:userInput" name="NettoyageEtEntretien" incomingTransitions="_10AkvV4oEeuueIYcMJGC3A">
                 <outgoingTransitions xmi:id="_10BL0l4oEeuueIYcMJGC3A" specification="StartStop[&#xD;&#xA;userInput==&quot;Nettoyer&quot;||&#xD;&#xA;userInput==&quot;Detartrer&quot;||&#xD;&#xA;userInput==&quot;calc'nClean&quot;||&#xD;&#xA;userInput==&quot;Nettoyer le mousseur de lait&quot;] " target="_10By214oEeuueIYcMJGC3A"/>
                 <outgoingTransitions xmi:id="_10By114oEeuueIYcMJGC3A" specification="retourButtonClick" target="_10AksF4oEeuueIYcMJGC3A"/>
               </vertices>
               <vertices xsi:type="sgraph:Exit" xmi:id="_10By214oEeuueIYcMJGC3A" name="netEntMenu_exit" incomingTransitions="_10BL0l4oEeuueIYcMJGC3A"/>
+              <vertices xsi:type="sgraph:State" xmi:id="_awzagGbPEeunINwP4PlkGA" specification="entry/raise Screen.displayChoixBoissonFavori:&quot;selectBoisFav&quot; &#xD;&#xA;selectNormalDrink/raise Screen.updateDeuxTasseAlafois:false;raise Screen.displayChoixBoissonFavori:valueof(selectNormalDrink);boissonFav=valueof(selectNormalDrink)&#xD;&#xA;selectSpecialDrink/specialDrinkInt++;boissonFav=specialDrink;raise Screen.updateDeuxTasseAlafois:false;raise Screen.displayChoixBoissonFavori:boissonFav&#xD;&#xA;deuxTasseAlafoisButtonClick[intensiteCafe!=&quot;comp.poudre&quot;]/raise Screen.updateDeuxTasseAlafois:true;boissonFavDeuxTassesALaFois1=(favori==1?true:false);boissonFavDeuxTassesALaFois2=(favori==2?true:false);raise Screen.displayChoixBoissonFavori:boissonFav&#xD;&#xA;exit/raise Screen.updateDeuxTasseAlafois:false" name="ChoixBoissonFavorite" incomingTransitions="_cAvYYGbPEeunINwP4PlkGA _NK38cGmlEeuSXueDl6JW0w">
+                <outgoingTransitions xmi:id="_X-9oMGbTEeunINwP4PlkGA" specification="okButtonClick[boissonFav==&quot;expresso&quot;||&#xD;&#xA;boissonFav==&quot;expressomacch&quot;|| &#xD;&#xA;boissonFav==&quot;cafe&quot;||&#xD;&#xA;boissonFav==&quot;cappuccino&quot;||&#xD;&#xA;boissonFav==&quot;lattemacchiato&quot;||&#xD;&#xA;boissonFav==&quot;cafeaulait&quot;||&#xD;&#xA;boissonFav==&quot;mousselait&quot;||&#xD;&#xA;boissonFav==&quot;eauchaude&quot;||&#xD;&#xA;boissonFav==&quot;laitchaud&quot;||&#xD;&#xA;boissonFav==&quot;verseuse&quot;||&#xD;&#xA;boissonFav==&quot;americano&quot;||&#xD;&#xA;boissonFav==&quot;flatwhite&quot;||&#xD;&#xA;boissonFav==&quot;cafecortado&quot;]" target="_XMWfgGbTEeunINwP4PlkGA"/>
+                <outgoingTransitions xmi:id="_G6Zc4GmlEeuSXueDl6JW0w" specification="retourButtonClick" target="_10AksF4oEeuueIYcMJGC3A"/>
+              </vertices>
+              <vertices xsi:type="sgraph:State" xmi:id="_XMWfgGbTEeunINwP4PlkGA" specification="entry/raise Screen.updateMessage:&quot;selectTailleIntensiteBois&quot;;raise Screen.displaySelectTailleIntensiteBoissonFav:boissonFav &#xD;&#xA;after 1 s/raise Screen.&#xD;&#xA;updateMessage:&quot;messageContinu1&quot;;raise Screen.displaySelectTailleIntensiteBoissonFav:boissonFav &#xD;&#xA;IntensiteCafeButtonClick/&#xD;&#xA;intensiteCafeInt++;raise Screen.updateIntensiteCafe:intensiteCafe;raise Screen.displaySelectTailleIntensiteBoissonFav:boissonFav &#xD;&#xA;tailleDeLaTasseButtonClick/tailleDeLaTasseInt++;raise Screen.updateTailleDeLaTasse:tailleDeLaTasse;raise Screen.displaySelectTailleIntensiteBoissonFav:boissonFav" name="selectTailleIntensiteBoissonFav" incomingTransitions="_X-9oMGbTEeunINwP4PlkGA _R-66QGmlEeuSXueDl6JW0w">
+                <outgoingTransitions xmi:id="_GB9NEGb0EeunINwP4PlkGA" specification="okButtonClick" target="_EzufYGb0EeunINwP4PlkGA"/>
+                <outgoingTransitions xmi:id="_NK38cGmlEeuSXueDl6JW0w" specification="retourButtonClick" target="_awzagGbPEeunINwP4PlkGA"/>
+              </vertices>
+              <vertices xsi:type="sgraph:State" xmi:id="_EzufYGb0EeunINwP4PlkGA" specification="entry/raise Screen.updateMessage:&#xD;&#xA;&quot;ajuterTailleTasseMessage&quot;;raise &#xD;&#xA;Screen.displayAjusterTailleTasseFav:boissonFav " name="AjusterTailleTasse" incomingTransitions="_GB9NEGb0EeunINwP4PlkGA _UpPLcGmlEeuSXueDl6JW0w">
+                <outgoingTransitions xmi:id="_GUpiwGb4EeunINwP4PlkGA" specification="okButtonClick" target="_FdOLgGb4EeunINwP4PlkGA"/>
+                <outgoingTransitions xmi:id="_R-66QGmlEeuSXueDl6JW0w" specification="retourButtonClick" target="_XMWfgGbTEeunINwP4PlkGA"/>
+              </vertices>
+              <vertices xsi:type="sgraph:State" xmi:id="_FdOLgGb4EeunINwP4PlkGA" specification="entry/raise Screen.updateTailleTasseBoiFav:tailleTasseBoiFav;raise &#xD;&#xA;Screen.displaySelectTailleTasseFav:boissonFav navButtonClick/tailleTasseBoiFavInt++;raise Screen.updateTailleTasseBoiFav:tailleTasseBoiFav;raise &#xD;&#xA;Screen.displaySelectTailleTasseFav:boissonFav&#xD;&#xA;" name="selectTailleTasse" incomingTransitions="_GUpiwGb4EeunINwP4PlkGA _XlqgUGmlEeuSXueDl6JW0w">
+                <outgoingTransitions xmi:id="_d0l_AGb4EeunINwP4PlkGA" specification="okButtonClick" target="_avE_kGb4EeunINwP4PlkGA"/>
+                <outgoingTransitions xmi:id="_UpPLcGmlEeuSXueDl6JW0w" specification="retourButtonClick" target="_EzufYGb0EeunINwP4PlkGA"/>
+              </vertices>
+              <vertices xsi:type="sgraph:State" xmi:id="_avE_kGb4EeunINwP4PlkGA" specification="entry/raise Screen.updateMessage:&quot;temperatureBoissonMessage&quot;;raise &#xD;&#xA;Screen.displayTemperatureBoissonFav:boissonFav" name="temperatureBoisson" incomingTransitions="_d0l_AGb4EeunINwP4PlkGA _bTxw0GmlEeuSXueDl6JW0w">
+                <outgoingTransitions xmi:id="_SzKccGb5EeunINwP4PlkGA" specification="okButtonClick" target="_RzHUsGb5EeunINwP4PlkGA"/>
+                <outgoingTransitions xmi:id="_XlqgUGmlEeuSXueDl6JW0w" specification="retourButtonClick" target="_FdOLgGb4EeunINwP4PlkGA"/>
+              </vertices>
+              <vertices xsi:type="sgraph:State" xmi:id="_RzHUsGb5EeunINwP4PlkGA" specification="entry/raise Screen.updateTemperatureBoisson:tempBoissonFav;&#xD;&#xA;raise Screen.displaySelectTemperatureBoissonFav:boissonFav &#xD;&#xA;navButtonClick/tempBoissonFavInt++;raise Screen.updateTemperatureBoisson:tempBoissonFav;&#xD;&#xA;raise Screen.displaySelectTemperatureBoissonFav:boissonFav " name="SelectTemperatureBoisson" incomingTransitions="_SzKccGb5EeunINwP4PlkGA _p3YkMGmlEeuSXueDl6JW0w">
+                <outgoingTransitions xmi:id="_wVyXYGb6EeunINwP4PlkGA" specification="okButtonClick" target="_ndG88GlfEeuSXueDl6JW0w"/>
+                <outgoingTransitions xmi:id="_bTxw0GmlEeuSXueDl6JW0w" specification="retourButtonClick" target="_avE_kGb4EeunINwP4PlkGA"/>
+              </vertices>
+              <vertices xsi:type="sgraph:State" xmi:id="_uLK58Gb6EeunINwP4PlkGA" specification="entry/raise &#xD;&#xA;Screen.updateMessage:&#xD;&#xA;&quot;ratioLaitCafeMessage&quot;;&#xD;&#xA;raise Screen.displayRatioLaitCafeFav:boissonFav" name="ratioLaitCafe" incomingTransitions="_rKvFQGlfEeuSXueDl6JW0w _fh1FoGmlEeuSXueDl6JW0w">
+                <outgoingTransitions xmi:id="_Q-eEUGb8EeunINwP4PlkGA" specification="okButtonClick" target="_N1L_MGb8EeunINwP4PlkGA"/>
+                <outgoingTransitions xmi:id="_p3YkMGmlEeuSXueDl6JW0w" specification="retourButtonClick" target="_RzHUsGb5EeunINwP4PlkGA"/>
+              </vertices>
+              <vertices xsi:type="sgraph:State" xmi:id="_N1L_MGb8EeunINwP4PlkGA" specification="entry/raise Screen.updateRatioLaitCafe:ratioLaitCafe;raise Screen.displaySelectRatioLaitafeFav:boissonFav &#xD;&#xA;navButtonClick/ratioLaitCafeInt++;raise Screen.updateRatioLaitCafe:ratioLaitCafe;raise Screen.displaySelectRatioLaitafeFav:boissonFav " name="selectRatioLaitCafe" incomingTransitions="_Q-eEUGb8EeunINwP4PlkGA">
+                <outgoingTransitions xmi:id="_z1vIsGb9EeunINwP4PlkGA" specification="okButtonClick" target="_yYE34Gb9EeunINwP4PlkGA"/>
+                <outgoingTransitions xmi:id="_fh1FoGmlEeuSXueDl6JW0w" specification="retourButtonClick" target="_uLK58Gb6EeunINwP4PlkGA"/>
+              </vertices>
+              <vertices xsi:type="sgraph:State" xmi:id="_yYE34Gb9EeunINwP4PlkGA" specification="entry/raise Screen.displayMessage:&quot;boissonEnregistrerMessage&quot;" name="EnregistrementBoissonFavorite" incomingTransitions="_z1vIsGb9EeunINwP4PlkGA _tsEZkGlfEeuSXueDl6JW0w">
+                <outgoingTransitions xmi:id="_yv8YcGh1Eeuz7K3JOa2hBg" specification="after 2 s/fromMenuFav=true" target="_0XlZwGh3Eeuz7K3JOa2hBg"/>
+              </vertices>
+              <vertices xsi:type="sgraph:Exit" xmi:id="_0XlZwGh3Eeuz7K3JOa2hBg" name="favMenu_exit" incomingTransitions="_yv8YcGh1Eeuz7K3JOa2hBg"/>
+              <vertices xsi:type="sgraph:Choice" xmi:id="_ndG88GlfEeuSXueDl6JW0w" incomingTransitions="_wVyXYGb6EeunINwP4PlkGA">
+                <outgoingTransitions xmi:id="_rKvFQGlfEeuSXueDl6JW0w" specification="[boissonFav==&quot;cappuccino&quot;||&#xD;&#xA;boissonFav==&quot;lattemacchiato&quot;||&#xD;&#xA;boissonFav==&quot;cafeaulait&quot;||&#xD;&#xA;boissonFav==&quot;flatwhite&quot;||&#xD;&#xA;boissonFav==&quot;cafecortado&quot;||&#xD;&#xA;boissonFav==&quot;expressomacch&quot;]" target="_uLK58Gb6EeunINwP4PlkGA"/>
+                <outgoingTransitions xmi:id="_tsEZkGlfEeuSXueDl6JW0w" specification="" target="_yYE34Gb9EeunINwP4PlkGA"/>
+              </vertices>
             </regions>
           </vertices>
           <vertices xsi:type="sgraph:Choice" xmi:id="_G1HIEGBAEeuz3cXumeXZmg" incomingTransitions="_TEqyAGA8Eeuz3cXumeXZmg">
@@ -956,7 +1000,7 @@
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_10rTFl4oEeuueIYcMJGC3A" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_10rTF14oEeuueIYcMJGC3A" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_10rTGF4oEeuueIYcMJGC3A" points="[-312, -140, 219, 74]$[-312, -187, 219, 27]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_10rTGF4oEeuueIYcMJGC3A" points="[-344, -140, 187, 74]$[-344, -187, 187, 27]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_10rTGV4oEeuueIYcMJGC3A" id="(0.9980842911877394,0.27155963302752295)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_10rTGl4oEeuueIYcMJGC3A" id="(0.12890625,0.7169811320754716)"/>
     </edges>
@@ -1201,7 +1245,7 @@
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_100c_V4oEeuueIYcMJGC3A" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_100c_l4oEeuueIYcMJGC3A" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_100c_14oEeuueIYcMJGC3A" points="[48, 27, -152, -36]$[172, 27, -28, -36]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_100c_14oEeuueIYcMJGC3A" points="[48, 12, -152, -51]$[172, 12, -28, -51]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_100dAF4oEeuueIYcMJGC3A" id="(0.9508196721311475,0.04)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_100dAV4oEeuueIYcMJGC3A" id="(0.18571428571428572,0.9245283018867925)"/>
     </edges>
@@ -1332,6 +1376,28 @@
       <styles xsi:type="notation:FontStyle" xmi:id="_FSEik2NiEeu1l9fAyhnkWw" fontName="Verdana"/>
       <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_FSEikmNiEeu1l9fAyhnkWw" points="[7, 0, 323, 413]$[41, 0, 357, 413]$[41, -224, 357, 189]$[-307, -224, 9, 189]$[-307, -400, 9, 13]"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_FSG-0GNiEeu1l9fAyhnkWw" id="(0.8294979079497908,0.8934426229508197)"/>
+    </edges>
+    <edges xmi:id="_5WZNwGZhEeuW8pMXrA9rJA" type="Transition" element="_5VIpgGZhEeuW8pMXrA9rJA" source="_1zeZ-F4oEeuueIYcMJGC3A" target="_1zeZK14oEeuueIYcMJGC3A">
+      <children xsi:type="notation:DecorationNode" xmi:id="_5WbC8GZhEeuW8pMXrA9rJA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_5WbC8WZhEeuW8pMXrA9rJA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_5WbC8mZhEeuW8pMXrA9rJA" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_5WZNwWZhEeuW8pMXrA9rJA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_5Wab4GZhEeuW8pMXrA9rJA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_5WZNwmZhEeuW8pMXrA9rJA" points="[-4, -21, 126, -25]$[-128, -21, 2, -25]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_5WhJkGZhEeuW8pMXrA9rJA" id="(0.02564102564102564,0.803030303030303)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_5WhwoGZhEeuW8pMXrA9rJA" id="(0.997907949790795,0.5163934426229508)"/>
+    </edges>
+    <edges xmi:id="_XQljgGh5Eeuz7K3JOa2hBg" type="Transition" element="_XQhSEGh5Eeuz7K3JOa2hBg" source="_1zeZ-F4oEeuueIYcMJGC3A" target="_1zeZK14oEeuueIYcMJGC3A">
+      <children xsi:type="notation:DecorationNode" xmi:id="_XQljgWh5Eeuz7K3JOa2hBg" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_XQljgmh5Eeuz7K3JOa2hBg"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_XQljg2h5Eeuz7K3JOa2hBg" x="-5" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_XQljhGh5Eeuz7K3JOa2hBg" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_XQljhWh5Eeuz7K3JOa2hBg" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_XQljhmh5Eeuz7K3JOa2hBg" points="[-6, -5, 139, -43]$[-130, -5, 15, -43]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_XQnYsGh5Eeuz7K3JOa2hBg" id="(0.038461538461538464,0.8939393939393939)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_XQnYsWh5Eeuz7K3JOa2hBg" id="(0.9843096234309623,0.8442622950819673)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_1ys9EF4oEeuueIYcMJGC3A" type="org.yakindu.sct.ui.editor.editor.StatechartDiagramEditor" element="_1zx7L14oEeuueIYcMJGC3A" measurementUnit="Pixel">
@@ -1601,7 +1667,7 @@
     <edges xmi:id="_1yxO3l4oEeuueIYcMJGC3A" type="Transition" element="_1zsbul4oEeuueIYcMJGC3A" source="_1yxOnF4oEeuueIYcMJGC3A" target="_1yxOqF4oEeuueIYcMJGC3A">
       <children xsi:type="notation:DecorationNode" xmi:id="_1yxO314oEeuueIYcMJGC3A" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="_1yxO4F4oEeuueIYcMJGC3A"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_1yxO4V4oEeuueIYcMJGC3A" x="21" y="17"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_1yxO4V4oEeuueIYcMJGC3A" x="72" y="17"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_1yxO4l4oEeuueIYcMJGC3A" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_1yxO414oEeuueIYcMJGC3A" fontName="Verdana"/>
@@ -1695,7 +1761,7 @@
     <edges xmi:id="_1yxPM14oEeuueIYcMJGC3A" type="Transition" element="_1ztCu14oEeuueIYcMJGC3A" source="_1yxOnF4oEeuueIYcMJGC3A" target="_1yxOqF4oEeuueIYcMJGC3A">
       <children xsi:type="notation:DecorationNode" xmi:id="_1yxPNF4oEeuueIYcMJGC3A" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="_1yxPNV4oEeuueIYcMJGC3A"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_1yxPNl4oEeuueIYcMJGC3A" x="-179" y="56"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_1yxPNl4oEeuueIYcMJGC3A" x="-350" y="62"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_1yxPN14oEeuueIYcMJGC3A" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_1yxPOF4oEeuueIYcMJGC3A" fontName="Verdana"/>
@@ -1713,6 +1779,15 @@
       <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_1yxPQl4oEeuueIYcMJGC3A" points="[-99, 8, 981, -37]$[-99, 149, 981, 104]$[-1096, 149, -16, 104]$[-1096, 51, -16, 6]$[-1082, 51, -2, 6]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_1yxPQ14oEeuueIYcMJGC3A" id="(0.6518518518518519,0.8787878787878788)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_1yxPRF4oEeuueIYcMJGC3A" id="(0.13333333333333333,0.06666666666666667)"/>
+    </edges>
+    <edges xmi:id="_k0qKMGeBEeubguCCtaYkXw" type="Transition" element="_k0kDkGeBEeubguCCtaYkXw" source="_1yxOnF4oEeuueIYcMJGC3A" target="_1yxOqF4oEeuueIYcMJGC3A">
+      <children xsi:type="notation:DecorationNode" xmi:id="_k0rYUGeBEeubguCCtaYkXw" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_k0rYUWeBEeubguCCtaYkXw"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_k0rYUmeBEeubguCCtaYkXw" x="8" y="21"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_k0qKMWeBEeubguCCtaYkXw" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_k0qxQGeBEeubguCCtaYkXw" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_k0qKMmeBEeubguCCtaYkXw" points="[8, 29, 603, -44]$[8, 116, 603, 43]$[-595, 116, 0, 43]$[-595, 80, 0, 7]"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_1yzDsF4oEeuueIYcMJGC3A" type="org.yakindu.sct.ui.editor.editor.StatechartDiagramEditor" element="_1z3a3F4oEeuueIYcMJGC3A" measurementUnit="Pixel">
@@ -2620,7 +2695,7 @@
           <styles xsi:type="notation:ShapeStyle" xmi:id="_1zY5nl4oEeuueIYcMJGC3A" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
           <styles xsi:type="notation:FontStyle" xmi:id="_1zY5n14oEeuueIYcMJGC3A"/>
           <styles xsi:type="notation:BooleanValueStyle" xmi:id="_1zY5oF4oEeuueIYcMJGC3A" name="isHorizontal" booleanValue="true"/>
-          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_1zY5oV4oEeuueIYcMJGC3A" x="77" y="66"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_1zY5oV4oEeuueIYcMJGC3A" x="43" y="52" width="242" height="100"/>
         </children>
         <children xmi:id="_1zY5ol4oEeuueIYcMJGC3A" type="Entry" element="_10BLuF4oEeuueIYcMJGC3A">
           <children xmi:id="_1zY5o14oEeuueIYcMJGC3A" type="BorderItemLabelContainer">
@@ -2633,7 +2708,7 @@
           </children>
           <styles xsi:type="notation:ShapeStyle" xmi:id="_1zY5qV4oEeuueIYcMJGC3A" fontName="Verdana" fillColor="0" lineColor="16777215"/>
           <styles xsi:type="notation:NamedStyle" xmi:id="_1zY5ql4oEeuueIYcMJGC3A" name="allowColors"/>
-          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_1zY5q14oEeuueIYcMJGC3A" y="85" width="15" height="15"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_1zY5q14oEeuueIYcMJGC3A" y="94" width="15" height="15"/>
         </children>
         <children xmi:id="_1zY5rF4oEeuueIYcMJGC3A" type="State" element="_10BLul4oEeuueIYcMJGC3A">
           <children xsi:type="notation:DecorationNode" xmi:id="_1zY5rV4oEeuueIYcMJGC3A" type="StateName">
@@ -2663,30 +2738,189 @@
           <styles xsi:type="notation:ShapeStyle" xmi:id="_1zY5v14oEeuueIYcMJGC3A" fontName="Verdana" lineColor="4210752"/>
           <layoutConstraint xsi:type="notation:Bounds" xmi:id="_1zY5wF4oEeuueIYcMJGC3A" x="923" y="94" width="15" height="15"/>
         </children>
+        <children xmi:id="_aw7WUGbPEeunINwP4PlkGA" type="State" element="_awzagGbPEeunINwP4PlkGA">
+          <children xsi:type="notation:DecorationNode" xmi:id="_aw9LgGbPEeunINwP4PlkGA" type="StateName">
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_aw9LgWbPEeunINwP4PlkGA"/>
+            <layoutConstraint xsi:type="notation:Location" xmi:id="_aw9LgmbPEeunINwP4PlkGA"/>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_aw9ykGbPEeunINwP4PlkGA" type="StateTextCompartment">
+            <children xsi:type="notation:Shape" xmi:id="_aw-ZoGbPEeunINwP4PlkGA" type="StateTextCompartmentExpression" fontName="Verdana" lineColor="4210752">
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_aw-ZoWbPEeunINwP4PlkGA"/>
+            </children>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_aw-ZombPEeunINwP4PlkGA" type="StateFigureCompartment"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_aw7WUWbPEeunINwP4PlkGA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
+          <styles xsi:type="notation:FontStyle" xmi:id="_aw7WUmbPEeunINwP4PlkGA"/>
+          <styles xsi:type="notation:BooleanValueStyle" xmi:id="_aw-Zo2bPEeunINwP4PlkGA" name="isHorizontal" booleanValue="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_aw7WU2bPEeunINwP4PlkGA" x="43" y="252" width="156" height="53"/>
+        </children>
+        <children xmi:id="_XMbYAGbTEeunINwP4PlkGA" type="State" element="_XMWfgGbTEeunINwP4PlkGA">
+          <children xsi:type="notation:DecorationNode" xmi:id="_XMbYBGbTEeunINwP4PlkGA" type="StateName">
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_XMbYBWbTEeunINwP4PlkGA"/>
+            <layoutConstraint xsi:type="notation:Location" xmi:id="_XMbYBmbTEeunINwP4PlkGA"/>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_XMb_EGbTEeunINwP4PlkGA" type="StateTextCompartment">
+            <children xsi:type="notation:Shape" xmi:id="_XMb_EWbTEeunINwP4PlkGA" type="StateTextCompartmentExpression" fontName="Verdana" lineColor="4210752">
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_XMb_EmbTEeunINwP4PlkGA"/>
+            </children>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_XMb_E2bTEeunINwP4PlkGA" type="StateFigureCompartment"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_XMbYAWbTEeunINwP4PlkGA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
+          <styles xsi:type="notation:FontStyle" xmi:id="_XMbYAmbTEeunINwP4PlkGA"/>
+          <styles xsi:type="notation:BooleanValueStyle" xmi:id="_XMb_FGbTEeunINwP4PlkGA" name="isHorizontal" booleanValue="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_XMbYA2bTEeunINwP4PlkGA" x="33" y="377" width="207" height="53"/>
+        </children>
+        <children xmi:id="_EzzX4Gb0EeunINwP4PlkGA" type="State" element="_EzufYGb0EeunINwP4PlkGA">
+          <children xsi:type="notation:DecorationNode" xmi:id="_Ezz-8Gb0EeunINwP4PlkGA" type="StateName">
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_Ezz-8Wb0EeunINwP4PlkGA"/>
+            <layoutConstraint xsi:type="notation:Location" xmi:id="_Ezz-8mb0EeunINwP4PlkGA"/>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_Ezz-82b0EeunINwP4PlkGA" type="StateTextCompartment">
+            <children xsi:type="notation:Shape" xmi:id="_Ezz-9Gb0EeunINwP4PlkGA" type="StateTextCompartmentExpression" fontName="Verdana" lineColor="4210752">
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_Ezz-9Wb0EeunINwP4PlkGA"/>
+            </children>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_Ez0mAGb0EeunINwP4PlkGA" type="StateFigureCompartment"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_EzzX4Wb0EeunINwP4PlkGA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
+          <styles xsi:type="notation:FontStyle" xmi:id="_EzzX4mb0EeunINwP4PlkGA"/>
+          <styles xsi:type="notation:BooleanValueStyle" xmi:id="_Ez0mAWb0EeunINwP4PlkGA" name="isHorizontal" booleanValue="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_EzzX42b0EeunINwP4PlkGA" y="482" width="327" height="72"/>
+        </children>
+        <children xmi:id="_FdSc8Gb4EeunINwP4PlkGA" type="State" element="_FdOLgGb4EeunINwP4PlkGA">
+          <children xsi:type="notation:DecorationNode" xmi:id="_FdTEAGb4EeunINwP4PlkGA" type="StateName">
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_FdTEAWb4EeunINwP4PlkGA"/>
+            <layoutConstraint xsi:type="notation:Location" xmi:id="_FdTEAmb4EeunINwP4PlkGA"/>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_FdTEA2b4EeunINwP4PlkGA" type="StateTextCompartment">
+            <children xsi:type="notation:Shape" xmi:id="_FdTEBGb4EeunINwP4PlkGA" type="StateTextCompartmentExpression" fontName="Verdana" lineColor="4210752">
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_FdTEBWb4EeunINwP4PlkGA"/>
+            </children>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_FdUSIGb4EeunINwP4PlkGA" type="StateFigureCompartment"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_FdSc8Wb4EeunINwP4PlkGA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
+          <styles xsi:type="notation:FontStyle" xmi:id="_FdSc8mb4EeunINwP4PlkGA"/>
+          <styles xsi:type="notation:BooleanValueStyle" xmi:id="_FdUSIWb4EeunINwP4PlkGA" name="isHorizontal" booleanValue="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_FdSc82b4EeunINwP4PlkGA" x="78" y="592" width="134" height="45"/>
+        </children>
+        <children xmi:id="_avJRAGb4EeunINwP4PlkGA" type="State" element="_avE_kGb4EeunINwP4PlkGA">
+          <children xsi:type="notation:DecorationNode" xmi:id="_avJRBGb4EeunINwP4PlkGA" type="StateName">
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_avJRBWb4EeunINwP4PlkGA"/>
+            <layoutConstraint xsi:type="notation:Location" xmi:id="_avJRBmb4EeunINwP4PlkGA"/>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_avJ4EGb4EeunINwP4PlkGA" type="StateTextCompartment">
+            <children xsi:type="notation:Shape" xmi:id="_avJ4EWb4EeunINwP4PlkGA" type="StateTextCompartmentExpression" fontName="Verdana" lineColor="4210752">
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_avJ4Emb4EeunINwP4PlkGA"/>
+            </children>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_avJ4E2b4EeunINwP4PlkGA" type="StateFigureCompartment"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_avJRAWb4EeunINwP4PlkGA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
+          <styles xsi:type="notation:FontStyle" xmi:id="_avJRAmb4EeunINwP4PlkGA"/>
+          <styles xsi:type="notation:BooleanValueStyle" xmi:id="_avJ4FGb4EeunINwP4PlkGA" name="isHorizontal" booleanValue="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_avJRA2b4EeunINwP4PlkGA" x="313" y="592" width="155" height="45"/>
+        </children>
+        <children xmi:id="_RzMNMGb5EeunINwP4PlkGA" type="State" element="_RzHUsGb5EeunINwP4PlkGA">
+          <children xsi:type="notation:DecorationNode" xmi:id="_RzMNNGb5EeunINwP4PlkGA" type="StateName">
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_RzMNNWb5EeunINwP4PlkGA"/>
+            <layoutConstraint xsi:type="notation:Location" xmi:id="_RzMNNmb5EeunINwP4PlkGA"/>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_RzMNN2b5EeunINwP4PlkGA" type="StateTextCompartment">
+            <children xsi:type="notation:Shape" xmi:id="_RzMNOGb5EeunINwP4PlkGA" type="StateTextCompartmentExpression" fontName="Verdana" lineColor="4210752">
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_RzMNOWb5EeunINwP4PlkGA"/>
+            </children>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_RzM0QGb5EeunINwP4PlkGA" type="StateFigureCompartment"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_RzMNMWb5EeunINwP4PlkGA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
+          <styles xsi:type="notation:FontStyle" xmi:id="_RzMNMmb5EeunINwP4PlkGA"/>
+          <styles xsi:type="notation:BooleanValueStyle" xmi:id="_RzM0QWb5EeunINwP4PlkGA" name="isHorizontal" booleanValue="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_RzMNM2b5EeunINwP4PlkGA" x="563" y="597" width="199" height="45"/>
+        </children>
+        <children xmi:id="_uLPLYGb6EeunINwP4PlkGA" type="State" element="_uLK58Gb6EeunINwP4PlkGA">
+          <children xsi:type="notation:DecorationNode" xmi:id="_uLPLZGb6EeunINwP4PlkGA" type="StateName">
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_uLPLZWb6EeunINwP4PlkGA"/>
+            <layoutConstraint xsi:type="notation:Location" xmi:id="_uLPLZmb6EeunINwP4PlkGA"/>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_uLPLZ2b6EeunINwP4PlkGA" type="StateTextCompartment">
+            <children xsi:type="notation:Shape" xmi:id="_uLPLaGb6EeunINwP4PlkGA" type="StateTextCompartmentExpression" fontName="Verdana" lineColor="4210752">
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_uLPLaWb6EeunINwP4PlkGA"/>
+            </children>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_uLPycGb6EeunINwP4PlkGA" type="StateFigureCompartment"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_uLPLYWb6EeunINwP4PlkGA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
+          <styles xsi:type="notation:FontStyle" xmi:id="_uLPLYmb6EeunINwP4PlkGA"/>
+          <styles xsi:type="notation:BooleanValueStyle" xmi:id="_uLPycWb6EeunINwP4PlkGA" name="isHorizontal" booleanValue="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_uLPLY2b6EeunINwP4PlkGA" x="882" y="587" width="179" height="114"/>
+        </children>
+        <children xmi:id="_N1Q3sGb8EeunINwP4PlkGA" type="State" element="_N1L_MGb8EeunINwP4PlkGA">
+          <children xsi:type="notation:DecorationNode" xmi:id="_N1Q3tGb8EeunINwP4PlkGA" type="StateName">
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_N1Q3tWb8EeunINwP4PlkGA"/>
+            <layoutConstraint xsi:type="notation:Location" xmi:id="_N1Q3tmb8EeunINwP4PlkGA"/>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_N1Q3t2b8EeunINwP4PlkGA" type="StateTextCompartment">
+            <children xsi:type="notation:Shape" xmi:id="_N1Q3uGb8EeunINwP4PlkGA" type="StateTextCompartmentExpression" fontName="Verdana" lineColor="4210752">
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_N1Q3uWb8EeunINwP4PlkGA"/>
+            </children>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_N1RewGb8EeunINwP4PlkGA" type="StateFigureCompartment"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_N1Q3sWb8EeunINwP4PlkGA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
+          <styles xsi:type="notation:FontStyle" xmi:id="_N1Q3smb8EeunINwP4PlkGA"/>
+          <styles xsi:type="notation:BooleanValueStyle" xmi:id="_N1RewWb8EeunINwP4PlkGA" name="isHorizontal" booleanValue="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_N1Q3s2b8EeunINwP4PlkGA" x="882" y="457" width="141" height="53"/>
+        </children>
+        <children xmi:id="_yYJJUGb9EeunINwP4PlkGA" type="State" element="_yYE34Gb9EeunINwP4PlkGA">
+          <children xsi:type="notation:DecorationNode" xmi:id="_yYJJVGb9EeunINwP4PlkGA" type="StateName">
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_yYJJVWb9EeunINwP4PlkGA"/>
+            <layoutConstraint xsi:type="notation:Location" xmi:id="_yYJJVmb9EeunINwP4PlkGA"/>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_yYJJV2b9EeunINwP4PlkGA" type="StateTextCompartment">
+            <children xsi:type="notation:Shape" xmi:id="_yYJJWGb9EeunINwP4PlkGA" type="StateTextCompartmentExpression" fontName="Verdana" lineColor="4210752">
+              <layoutConstraint xsi:type="notation:Bounds" xmi:id="_yYJJWWb9EeunINwP4PlkGA"/>
+            </children>
+          </children>
+          <children xsi:type="notation:Compartment" xmi:id="_yYJwYGb9EeunINwP4PlkGA" type="StateFigureCompartment"/>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_yYJJUWb9EeunINwP4PlkGA" fontName="Verdana" fillColor="15720400" lineColor="12632256"/>
+          <styles xsi:type="notation:FontStyle" xmi:id="_yYJJUmb9EeunINwP4PlkGA"/>
+          <styles xsi:type="notation:BooleanValueStyle" xmi:id="_yYJwYWb9EeunINwP4PlkGA" name="isHorizontal" booleanValue="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_yYJJU2b9EeunINwP4PlkGA" x="593" y="457" width="174" height="53"/>
+        </children>
+        <children xmi:id="_0XmA0Gh3Eeuz7K3JOa2hBg" type="Exit" element="_0XlZwGh3Eeuz7K3JOa2hBg">
+          <children xmi:id="_0Xmn4Gh3Eeuz7K3JOa2hBg" type="BorderItemLabelContainer">
+            <children xsi:type="notation:DecorationNode" xmi:id="_0Xmn42h3Eeuz7K3JOa2hBg" type="BorderItemLabel">
+              <styles xsi:type="notation:ShapeStyle" xmi:id="_0Xmn5Gh3Eeuz7K3JOa2hBg"/>
+              <layoutConstraint xsi:type="notation:Location" xmi:id="_0Xmn5Wh3Eeuz7K3JOa2hBg"/>
+            </children>
+            <styles xsi:type="notation:ShapeStyle" xmi:id="_0Xmn4Wh3Eeuz7K3JOa2hBg" fontName="Verdana" lineColor="4210752"/>
+            <layoutConstraint xsi:type="notation:Bounds" xmi:id="_0Xmn4mh3Eeuz7K3JOa2hBg"/>
+          </children>
+          <styles xsi:type="notation:ShapeStyle" xmi:id="_0XmA0Wh3Eeuz7K3JOa2hBg" fontName="Verdana" lineColor="4210752"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_0XmA0mh3Eeuz7K3JOa2hBg" x="672" y="387" width="15" height="15"/>
+        </children>
+        <children xsi:type="notation:Shape" xmi:id="_ndQG4GlfEeuSXueDl6JW0w" type="Choice" element="_ndG88GlfEeuSXueDl6JW0w" fontName="Verdana" lineColor="4210752">
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_ndQG4WlfEeuSXueDl6JW0w" x="848" y="616" width="15" height="15"/>
+        </children>
         <layoutConstraint xsi:type="notation:Bounds" xmi:id="_1zY5wV4oEeuueIYcMJGC3A"/>
       </children>
       <styles xsi:type="notation:ShapeStyle" xmi:id="_1zY5wl4oEeuueIYcMJGC3A" fontName="Verdana" fillColor="16448250" lineColor="12632256"/>
-      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_1zY5w14oEeuueIYcMJGC3A" width="1336" height="686"/>
+      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_1zY5w14oEeuueIYcMJGC3A" width="1396" height="760"/>
     </children>
     <styles xsi:type="notation:BooleanValueStyle" xmi:id="_1zY5xF4oEeuueIYcMJGC3A" name="inlineDefinitionSection"/>
     <styles xsi:type="notation:DiagramStyle" xmi:id="_1zY5xV4oEeuueIYcMJGC3A"/>
     <edges xmi:id="_1zY5xl4oEeuueIYcMJGC3A" type="Transition" element="_10BLuV4oEeuueIYcMJGC3A" source="_1zY5ol4oEeuueIYcMJGC3A" target="_1zY5ll4oEeuueIYcMJGC3A">
       <children xsi:type="notation:DecorationNode" xmi:id="_1zY5x14oEeuueIYcMJGC3A" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="_1zY5yF4oEeuueIYcMJGC3A"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_1zY5yV4oEeuueIYcMJGC3A" y="10"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_1zY5yV4oEeuueIYcMJGC3A" x="9" y="10"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_1zY5yl4oEeuueIYcMJGC3A" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_1zY5y14oEeuueIYcMJGC3A" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_1zY5zF4oEeuueIYcMJGC3A" points="[6, -2, -99, -2]$[70, -2, -35, -2]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_1zY5zF4oEeuueIYcMJGC3A" points="[6, 1, -151, 0]$[36, 1, -121, 0]"/>
     </edges>
     <edges xmi:id="_1zY5zV4oEeuueIYcMJGC3A" type="Transition" element="_10AkvV4oEeuueIYcMJGC3A" source="_1zY5ll4oEeuueIYcMJGC3A" target="_1zY5rF4oEeuueIYcMJGC3A">
       <children xsi:type="notation:DecorationNode" xmi:id="_1zY5zl4oEeuueIYcMJGC3A" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="_1zY5z14oEeuueIYcMJGC3A"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_1zY50F4oEeuueIYcMJGC3A" x="3" y="-20"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_1zY50F4oEeuueIYcMJGC3A" x="-3" y="-14"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_1zY50V4oEeuueIYcMJGC3A" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_1zY50l4oEeuueIYcMJGC3A" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_1zY5014oEeuueIYcMJGC3A" points="[4, 0, -191, -20]$[186, 0, -9, -20]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_1zY5014oEeuueIYcMJGC3A" points="[5, -7, -167, -27]$[163, -7, -9, -27]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_1zY51F4oEeuueIYcMJGC3A" id="(0.9797979797979798,0.49056603773584906)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_1zY51V4oEeuueIYcMJGC3A" id="(0.03680981595092025,0.5283018867924528)"/>
     </edges>
@@ -2703,13 +2937,228 @@
     <edges xmi:id="_1zY53l4oEeuueIYcMJGC3A" type="Transition" element="_10By114oEeuueIYcMJGC3A" source="_1zY5rF4oEeuueIYcMJGC3A" target="_1zY5ll4oEeuueIYcMJGC3A">
       <children xsi:type="notation:DecorationNode" xmi:id="_1zY5314oEeuueIYcMJGC3A" type="TransitionExpression">
         <styles xsi:type="notation:ShapeStyle" xmi:id="_1zY54F4oEeuueIYcMJGC3A"/>
-        <layoutConstraint xsi:type="notation:Location" xmi:id="_1zY54V4oEeuueIYcMJGC3A" x="10" y="10"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_1zY54V4oEeuueIYcMJGC3A" x="-7" y="10"/>
       </children>
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_1zY54l4oEeuueIYcMJGC3A" routing="Rectilinear" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_1zY5414oEeuueIYcMJGC3A" fontName="Verdana"/>
-      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_1zY55F4oEeuueIYcMJGC3A" points="[-79, -22, 246, 20]$[-309, -22, 16, 20]$[-309, -36, 16, 6]"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_1zY55F4oEeuueIYcMJGC3A" points="[-79, -42, 243, -11]$[-237, -42, 85, -11]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_1zY55V4oEeuueIYcMJGC3A" id="(0.3062015503875969,0.9629629629629629)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_1zY55l4oEeuueIYcMJGC3A" id="(0.6521739130434783,0.9166666666666666)"/>
+    </edges>
+    <edges xmi:id="_cAzCwGbPEeunINwP4PlkGA" type="Transition" element="_cAvYYGbPEeunINwP4PlkGA" source="_1zY5ll4oEeuueIYcMJGC3A" target="_aw7WUGbPEeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_cA0Q4GbPEeunINwP4PlkGA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_cA0Q4WbPEeunINwP4PlkGA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_cA0Q4mbPEeunINwP4PlkGA" x="-9" y="55"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_cAzCwWbPEeunINwP4PlkGA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_cAzp0GbPEeunINwP4PlkGA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_cAzCwmbPEeunINwP4PlkGA" points="[-63, 15, -33, -111]$[-63, 115, -33, -11]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_cA5JYGbPEeunINwP4PlkGA" id="(0.5909090909090909,0.85)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_cA5JYWbPEeunINwP4PlkGA" id="(0.7285714285714285,0.20754716981132076)"/>
+    </edges>
+    <edges xmi:id="_X--2UGbTEeunINwP4PlkGA" type="Transition" element="_X-9oMGbTEeunINwP4PlkGA" source="_aw7WUGbPEeunINwP4PlkGA" target="_XMbYAGbTEeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_X-_dYWbTEeunINwP4PlkGA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_X-_dYmbTEeunINwP4PlkGA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_X-_dY2bTEeunINwP4PlkGA" x="-55" y="-247"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_X--2UWbTEeunINwP4PlkGA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_X-_dYGbTEeunINwP4PlkGA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_X--2UmbTEeunINwP4PlkGA" points="[1, 11, 44, -76]$[1, 83, 44, -4]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_X_CgsGbTEeunINwP4PlkGA" id="(0.5897435897435898,0.7924528301886793)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_X_CgsWbTEeunINwP4PlkGA" id="(0.2857142857142857,0.07547169811320754)"/>
+    </edges>
+    <edges xmi:id="_GB-bMGb0EeunINwP4PlkGA" type="Transition" element="_GB9NEGb0EeunINwP4PlkGA" source="_XMbYAGbTEeunINwP4PlkGA" target="_EzzX4Gb0EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_GB_CQWb0EeunINwP4PlkGA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_GB_CQmb0EeunINwP4PlkGA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_GB_CQ2b0EeunINwP4PlkGA" x="-6" y="46"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_GB-bMWb0EeunINwP4PlkGA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_GB_CQGb0EeunINwP4PlkGA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_GB-bMmb0EeunINwP4PlkGA" points="[-8, 27, -77, -58]$[-8, 79, -77, -6]"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_GCBegGb0EeunINwP4PlkGA" id="(0.6285714285714286,0.09433962264150944)"/>
+    </edges>
+    <edges xmi:id="_GUqJ0Gb4EeunINwP4PlkGA" type="Transition" element="_GUpiwGb4EeunINwP4PlkGA" source="_EzzX4Gb0EeunINwP4PlkGA" target="_FdSc8Gb4EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_GUqJ1Gb4EeunINwP4PlkGA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_GUqw4Gb4EeunINwP4PlkGA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_GUqw4Wb4EeunINwP4PlkGA" x="-8" y="44"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_GUqJ0Wb4EeunINwP4PlkGA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_GUqJ02b4EeunINwP4PlkGA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_GUqJ0mb4EeunINwP4PlkGA" points="[-37, 36, 1, -40]$[-37, 74, 1, -2]"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_GUsmEGb4EeunINwP4PlkGA" id="(0.35714285714285715,0.03773584905660377)"/>
+    </edges>
+    <edges xmi:id="_d0nNIGb4EeunINwP4PlkGA" type="Transition" element="_d0l_AGb4EeunINwP4PlkGA" source="_FdSc8Gb4EeunINwP4PlkGA" target="_avJRAGb4EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_d0nNJGb4EeunINwP4PlkGA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_d0nNJWb4EeunINwP4PlkGA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_d0nNJmb4EeunINwP4PlkGA" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_d0nNIWb4EeunINwP4PlkGA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_d0nNI2b4EeunINwP4PlkGA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_d0nNImb4EeunINwP4PlkGA" points="[22, 12, -101, 13]$[123, 12, 0, 13]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_d0pCUGb4EeunINwP4PlkGA" id="(0.835820895522388,0.49056603773584906)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_d0pCUWb4EeunINwP4PlkGA" id="(0.0,0.4716981132075472)"/>
+    </edges>
+    <edges xmi:id="_SzLDgGb5EeunINwP4PlkGA" type="Transition" element="_SzKccGb5EeunINwP4PlkGA" source="_avJRAGb4EeunINwP4PlkGA" target="_RzMNMGb5EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_SzLqkWb5EeunINwP4PlkGA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_SzLqkmb5EeunINwP4PlkGA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_SzLqk2b5EeunINwP4PlkGA" x="-4" y="-7"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_SzLDgWb5EeunINwP4PlkGA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_SzLqkGb5EeunINwP4PlkGA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_SzLDgmb5EeunINwP4PlkGA" points="[19, 16, -123, 13]$[114, 16, -28, 13]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_SzM4sGb5EeunINwP4PlkGA" id="(0.8774193548387097,0.5471698113207547)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_SzM4sWb5EeunINwP4PlkGA" id="(0.14285714285714285,0.5094339622641509)"/>
+    </edges>
+    <edges xmi:id="_wVy-cGb6EeunINwP4PlkGA" type="Transition" element="_wVyXYGb6EeunINwP4PlkGA" source="_RzMNMGb5EeunINwP4PlkGA" target="_ndQG4GlfEeuSXueDl6JW0w">
+      <children xsi:type="notation:DecorationNode" xmi:id="_wVy-dGb6EeunINwP4PlkGA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_wVy-dWb6EeunINwP4PlkGA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_wVy-dmb6EeunINwP4PlkGA" y="-14"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_wVy-cWb6EeunINwP4PlkGA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_wVy-c2b6EeunINwP4PlkGA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_wVy-cmb6EeunINwP4PlkGA" points="[48, 2, -88, 0]$[134, 2, -2, 0]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_wV0zoGb6EeunINwP4PlkGA" id="(0.7587939698492462,0.4528301886792453)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_wV0zoWb6EeunINwP4PlkGA" id="(0.13333333333333333,0.4666666666666667)"/>
+    </edges>
+    <edges xmi:id="_Q-erYGb8EeunINwP4PlkGA" type="Transition" element="_Q-eEUGb8EeunINwP4PlkGA" source="_uLPLYGb6EeunINwP4PlkGA" target="_N1Q3sGb8EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_Q-erZGb8EeunINwP4PlkGA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_Q-erZWb8EeunINwP4PlkGA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_Q-erZmb8EeunINwP4PlkGA" x="3" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_Q-erYWb8EeunINwP4PlkGA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_Q-erY2b8EeunINwP4PlkGA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_Q-erYmb8EeunINwP4PlkGA" points="[-53, -57, -34, 88]$[-53, -134, -34, 11]"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_Q-ggkGb8EeunINwP4PlkGA" id="(0.5,0.7924528301886793)"/>
+    </edges>
+    <edges xmi:id="_z1wW0Gb9EeunINwP4PlkGA" type="Transition" element="_z1vIsGb9EeunINwP4PlkGA" source="_N1Q3sGb8EeunINwP4PlkGA" target="_yYJJUGb9EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_z1wW1Gb9EeunINwP4PlkGA" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_z1wW1Wb9EeunINwP4PlkGA"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_z1wW1mb9EeunINwP4PlkGA" x="2" y="11"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_z1wW0Wb9EeunINwP4PlkGA" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_z1wW02b9EeunINwP4PlkGA" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_z1wW0mb9EeunINwP4PlkGA" points="[-70, 0, 148, -5]$[-185, 0, 33, -5]"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_z1yMAGb9EeunINwP4PlkGA" id="(0.8142857142857143,0.5849056603773585)"/>
+    </edges>
+    <edges xmi:id="_yv-0sGh1Eeuz7K3JOa2hBg" type="Transition" element="_yv8YcGh1Eeuz7K3JOa2hBg" source="_yYJJUGb9EeunINwP4PlkGA" target="_0XmA0Gh3Eeuz7K3JOa2hBg">
+      <children xsi:type="notation:DecorationNode" xmi:id="_yv-0sWh1Eeuz7K3JOa2hBg" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_yv-0smh1Eeuz7K3JOa2hBg"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_yv-0s2h1Eeuz7K3JOa2hBg" x="-1" y="2"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_yv-0tGh1Eeuz7K3JOa2hBg" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_yv-0tWh1Eeuz7K3JOa2hBg" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_yv-0tmh1Eeuz7K3JOa2hBg" points="[-18, -4, 0, 70]$[-18, -61, 0, 13]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_yv-0t2h1Eeuz7K3JOa2hBg" id="(0.5862068965517241,0.07547169811320754)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_eRba8Gh3Eeuz7K3JOa2hBg" id="(0.3333333333333333,0.0)"/>
+    </edges>
+    <edges xmi:id="_rKw6cGlfEeuSXueDl6JW0w" type="Transition" element="_rKvFQGlfEeuSXueDl6JW0w" source="_ndQG4GlfEeuSXueDl6JW0w" target="_uLPLYGb6EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_rKxhgWlfEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_rKxhgmlfEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_rKyIkGlfEeuSXueDl6JW0w" x="25" y="95"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_rKw6cWlfEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_rKxhgGlfEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_rKw6cmlfEeuSXueDl6JW0w" points="[0, 8, -40, -6]$[0, 44, -40, 30]$[27, 44, -13, 30]"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_rK0k0GlfEeuSXueDl6JW0w" id="(0.07262569832402235,0.43859649122807015)"/>
+    </edges>
+    <edges xmi:id="_tsGOwGlfEeuSXueDl6JW0w" type="Transition" element="_tsEZkGlfEeuSXueDl6JW0w" source="_ndQG4GlfEeuSXueDl6JW0w" target="_yYJJUGb9EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_tsGOxGlfEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_tsGOxWlfEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_tsG10GlfEeuSXueDl6JW0w" x="3" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_tsGOwWlfEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_tsGOw2lfEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_tsGOwmlfEeuSXueDl6JW0w" points="[0, -4, 93, 131]$[0, -126, 93, 9]$[-88, -126, 5, 9]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_tsJ5IGlfEeuSXueDl6JW0w" id="(0.4666666666666667,0.2)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_tsJ5IWlfEeuSXueDl6JW0w" id="(0.9712643678160919,0.5094339622641509)"/>
+    </edges>
+    <edges xmi:id="_G6hYsGmlEeuSXueDl6JW0w" type="Transition" element="_G6Zc4GmlEeuSXueDl6JW0w" source="_aw7WUGbPEeunINwP4PlkGA" target="_1zY5ll4oEeuueIYcMJGC3A">
+      <children xsi:type="notation:DecorationNode" xmi:id="_G6h_wGmlEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_G6h_wWmlEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_G6h_wmmlEeuSXueDl6JW0w" x="2" y="31"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_G6hYsWmlEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_G6hYs2mlEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_G6hYsmmlEeuSXueDl6JW0w" points="[2, -8, 0, 109]$[1, -108, -1, 9]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_G6lqIGmlEeuSXueDl6JW0w" id="(0.7564102564102564,0.1509433962264151)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_G6lqIWmlEeuSXueDl6JW0w" id="(0.49586776859504134,0.91)"/>
+    </edges>
+    <edges xmi:id="_NK5xoGmlEeuSXueDl6JW0w" type="Transition" element="_NK38cGmlEeuSXueDl6JW0w" source="_XMbYAGbTEeunINwP4PlkGA" target="_aw7WUGbPEeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_NK5xpGmlEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_NK5xpWmlEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_NK5xpmmlEeuSXueDl6JW0w" x="-4" y="-52"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_NK5xoWmlEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_NK5xo2mlEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_NK5xommlEeuSXueDl6JW0w" points="[2, -10, 0, 74]$[-1, -82, -3, 2]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_NK808GmlEeuSXueDl6JW0w" id="(0.2946859903381642,0.18867924528301888)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_NK808WmlEeuSXueDl6JW0w" id="(0.33974358974358976,0.9622641509433962)"/>
+    </edges>
+    <edges xmi:id="_R-8IYGmlEeuSXueDl6JW0w" type="Transition" element="_R-66QGmlEeuSXueDl6JW0w" source="_EzzX4Gb0EeunINwP4PlkGA" target="_XMbYAGbTEeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_R-8vcWmlEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_R-8vcmmlEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_R-8vc2mlEeuSXueDl6JW0w" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_R-8IYWmlEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_R-8vcGmlEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_R-8IYmmlEeuSXueDl6JW0w" points="[-9, -9, 0, 61]$[23, -61, 32, 9]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_R--koGmlEeuSXueDl6JW0w" id="(0.636085626911315,0.125)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_R--koWmlEeuSXueDl6JW0w" id="(0.8019323671497585,0.8301886792452831)"/>
+    </edges>
+    <edges xmi:id="_UpQZkGmlEeuSXueDl6JW0w" type="Transition" element="_UpPLcGmlEeuSXueDl6JW0w" source="_FdSc8Gb4EeunINwP4PlkGA" target="_EzzX4Gb0EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_UpQZlGmlEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_UpQZlWmlEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_UpQZlmmlEeuSXueDl6JW0w" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_UpQZkWmlEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_UpQZk2mlEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_UpQZkmmlEeuSXueDl6JW0w" points="[5, -11, 0, 45]$[9, -49, 4, 7]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_UpS10GmlEeuSXueDl6JW0w" id="(0.7313432835820896,0.20754716981132076)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_UpS10WmlEeuSXueDl6JW0w" id="(0.5535168195718655,0.9027777777777778)"/>
+    </edges>
+    <edges xmi:id="_XlrHYGmlEeuSXueDl6JW0w" type="Transition" element="_XlqgUGmlEeuSXueDl6JW0w" source="_avJRAGb4EeunINwP4PlkGA" target="_FdSc8Gb4EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_XlrucGmlEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_XlrucWmlEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_XlrucmmlEeuSXueDl6JW0w" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_XlrHYWmlEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_XlrHY2mlEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_XlrHYmmlEeuSXueDl6JW0w" points="[-12, 6, 109, 6]$[-113, 6, 8, 6]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_XltjoGmlEeuSXueDl6JW0w" id="(0.07741935483870968,0.16981132075471697)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_XltjoWmlEeuSXueDl6JW0w" id="(0.9402985074626866,0.16981132075471697)"/>
+    </edges>
+    <edges xmi:id="_bTy-8GmlEeuSXueDl6JW0w" type="Transition" element="_bTxw0GmlEeuSXueDl6JW0w" source="_RzMNMGb5EeunINwP4PlkGA" target="_avJRAGb4EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_bTy-9GmlEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_bTy-9WmlEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_bTy-9mmlEeuSXueDl6JW0w" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_bTy-8WmlEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_bTy-82mlEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_bTy-8mmlEeuSXueDl6JW0w" points="[-12, -2, 102, 8]$[-107, -11, 7, -1]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_bT00IGmlEeuSXueDl6JW0w" id="(0.06030150753768844,0.41509433962264153)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_bT00IWmlEeuSXueDl6JW0w" id="(0.9548387096774194,0.32075471698113206)"/>
+    </edges>
+    <edges xmi:id="_fh5-IGmlEeuSXueDl6JW0w" type="Transition" element="_fh1FoGmlEeuSXueDl6JW0w" source="_N1Q3sGb8EeunINwP4PlkGA" target="_uLPLYGb6EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_fh6lMGmlEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_fh6lMWmlEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_fh6lMmmlEeuSXueDl6JW0w" x="22" y="-12"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_fh5-IWmlEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_fh5-I2mlEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_fh5-ImmlEeuSXueDl6JW0w" points="[-7, 6, -14, -87]$[-7, 83, -14, -10]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_fh8aYGmlEeuSXueDl6JW0w" id="(0.8368794326241135,0.8867924528301887)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_fh8aYWmlEeuSXueDl6JW0w" id="(0.6983240223463687,0.08771929824561403)"/>
+    </edges>
+    <edges xmi:id="_p3ZyUGmlEeuSXueDl6JW0w" type="Transition" element="_p3YkMGmlEeuSXueDl6JW0w" source="_uLPLYGb6EeunINwP4PlkGA" target="_RzMNMGb5EeunINwP4PlkGA">
+      <children xsi:type="notation:DecorationNode" xmi:id="_p3aZYWmlEeuSXueDl6JW0w" type="TransitionExpression">
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_p3aZYmmlEeuSXueDl6JW0w"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_p3aZY2mlEeuSXueDl6JW0w" y="10"/>
+      </children>
+      <styles xsi:type="notation:ConnectorStyle" xmi:id="_p3ZyUWmlEeuSXueDl6JW0w" routing="Rectilinear" lineColor="4210752"/>
+      <styles xsi:type="notation:FontStyle" xmi:id="_p3aZYGmlEeuSXueDl6JW0w" fontName="Verdana"/>
+      <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_p3ZyUmmlEeuSXueDl6JW0w" points="[-7, 4, 171, 0]$[-178, 4, 0, 0]"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_p3c1oGmlEeuSXueDl6JW0w" id="(0.03910614525139665,0.05263157894736842)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_p3c1oWmlEeuSXueDl6JW0w" id="(0.7437185929648241,0.0)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_1zaHsF4oEeuueIYcMJGC3A" type="org.yakindu.sct.ui.editor.editor.StatechartDiagramEditor" element="_1zwF914oEeuueIYcMJGC3A" measurementUnit="Pixel">

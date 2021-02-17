@@ -110,12 +110,28 @@ public class MachineAcafeProfessionnelleMain extends Application {
 		statemachine.screen().getDisplayPreparationBoisson().subscribe((value)->Platform.runLater(()->coffeMachineScreen.displayPreparationBoissonState(value)));
 		statemachine.screen().getUpdateIntensiteCafe().subscribe((value) -> coffeMachineScreen.setIntensiteDucafe(value));
 		statemachine.screen().getUpdateTailleDeLaTasse().subscribe((value) -> coffeMachineScreen.setTailleDeLaTasse(value));
+		statemachine.screen().getUpdateTailleTasseBoiFav().subscribe((value) -> coffeMachineScreen.setTailleTasseBoiFav(value));
 		statemachine.screen().getUpdateDeuxTasseAlafois().subscribe((value)->coffeMachineScreen.setDeuxTasses(value));
 		statemachine.screen().getUpdateProgressBar().subscribe((value)->coffeMachineScreen.setProgressBarValue(value));
 		statemachine.screen().getUpdateProgressBarCafe().subscribe((value)->coffeMachineScreen.setProgressBarCafe(value));
 		statemachine.screen().getUpdateProgressBarLait().subscribe((value)->coffeMachineScreen.setProgressBarLait(value));
 		statemachine.screen().getDisplayPrepBoissonDone().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayBoissonReadyState(value)));
 		statemachine.screen().getDisplayMessage().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayMessageState(value)));
+		statemachine.screen().getDisplayMenu().subscribe((value)->coffeMachineScreen.displayMenuState(value));
+		statemachine.screen().getDisplayChoixBoissonFavori().subscribe((value)->coffeMachineScreen.displayChoixBoissonFavori(value));
+		statemachine.screen().getDisplaySelectTailleIntensiteBoissonFav().subscribe((value)->Platform.runLater(()->coffeMachineScreen.displaySelectTailleIntensiteBoissonFav(value)));
+		statemachine.screen().getUpdateMessage().subscribe((value)->coffeMachineScreen.setMessage(value));
+		statemachine.screen().getDisplayAjusterTailleTasseFav().subscribe((value)->coffeMachineScreen.displayTailleTasseBoissonFavMessage(value));
+		statemachine.screen().getDisplaySelectTailleTasseFav().subscribe((value)->coffeMachineScreen.displaySelectTailleTasseBoissonFav(value));
+		statemachine.screen().getDisplayTemperatureBoissonFav().subscribe((value)->coffeMachineScreen.displayTemperatureBoissonFavMessage(value));
+		statemachine.screen().getDisplaySelectTemperatureBoissonFav().subscribe((value)->coffeMachineScreen.displaySelectTemperatureBoissonFav(value));
+		statemachine.screen().getUpdateTemperatureBoisson().subscribe((value)->coffeMachineScreen.setTemperatureBoissonFav(value));
+		statemachine.screen().getDisplayRatioLaitCafeFav().subscribe((value)->coffeMachineScreen.displayRatioLaitCafeFavMessage(value));
+		statemachine.screen().getDisplaySelectRatioLaitafeFav().subscribe((value)->coffeMachineScreen.displaySelectRatioLaitCafeFav(value));
+		statemachine.screen().getUpdateRatioLaitCafe().subscribe((value)->coffeMachineScreen.setRatioLaitCafe(value));
+		statemachine.screen().getUpdateNumfavBoisson().subscribe((value)->coffeMachineScreen.setNumFavBoisson(value));
+		statemachine.screen().getUpdateIsHandlingBoissonFav().subscribe((value)->coffeMachineScreen.setIsHandlingBoissonFav(value));
+		statemachine.screen().getBeepSound().subscribe((e)->coffeMachineScreen.beepSound());
 		
 		coffeMachineScreen.getBtStartStop().setOnAction((e)->{statemachine.raiseStartStop();});
 		coffeMachineScreen.getBtNav().setOnAction((e)->{statemachine.raiseNavButtonClick();});
@@ -132,6 +148,10 @@ public class MachineAcafeProfessionnelleMain extends Application {
 		coffeMachineScreen.getBtDeuxTasses().setOnAction((e)->{statemachine.raiseDeuxTasseAlafoisButtonClick();});
 		coffeMachineScreen.getBtBoissonSpecialeSelected().setOnAction((e)->{statemachine.raiseSelectSpecialDrink();});
 		coffeMachineScreen.getBtDeuxTasses().setOnAction((e)->{statemachine.raiseDeuxTasseAlafoisButtonClick();});
+		coffeMachineScreen.getBtMenu().setOnAction((e)->{statemachine.raiseMenuButtonClick();});
+		coffeMachineScreen.getBtOk().setOnAction((e)->{statemachine.raiseOkButtonClick();});
+		coffeMachineScreen.getBtSecuEnfant().setOnAction((e)->{statemachine.raiseFavButtonClick();});
+		coffeMachineScreen.getBtRetour().setOnAction((e)->{statemachine.raiseRetourButtonClick();});
 		
 		//statemachine.screen().getDisplayOff().subscribe(new ScreenDisplayOffObserver());
 		//statemachine.screen().getDisplayLanguageChoice().subscribe(new ScreenDisplayLanguageChoiceObserver());
