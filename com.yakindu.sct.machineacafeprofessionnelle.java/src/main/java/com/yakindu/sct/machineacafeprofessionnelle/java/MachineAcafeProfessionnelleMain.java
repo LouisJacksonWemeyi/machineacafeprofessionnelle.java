@@ -103,7 +103,7 @@ public class MachineAcafeProfessionnelleMain extends Application {
 		statemachine.setOperationCallback(new OperationCallback(statemachine));
 		statemachine.screen().getDisplayOff().subscribe((e) -> Platform.runLater(()->coffeMachineScreen.displayOffState()));
 		statemachine.screen().getDisplayChoixLangue().subscribe((value)->coffeMachineScreen.displayChoixLangueState(value));
-		statemachine.screen().getDisplayLogo().subscribe((e) -> coffeMachineScreen.displayLogoState());
+		statemachine.screen().getDisplayLogo().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayLogoState(value)));
 		statemachine.screen().getDisplayHeatingUp().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayHeatingUpState(value)));
 		statemachine.screen().getDisplayRincage().subscribe((e) -> Platform.runLater(()->coffeMachineScreen.displayRincageState()));
 		statemachine.screen().getDisplayNormalDrinkSelected().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayNormalDrinkSelected(value)));
@@ -132,6 +132,31 @@ public class MachineAcafeProfessionnelleMain extends Application {
 		statemachine.screen().getUpdateNumfavBoisson().subscribe((value)->coffeMachineScreen.setNumFavBoisson(value));
 		statemachine.screen().getUpdateIsHandlingBoissonFav().subscribe((value)->coffeMachineScreen.setIsHandlingBoissonFav(value));
 		statemachine.screen().getBeepSound().subscribe((e)->coffeMachineScreen.beepSound());
+		statemachine.screen().getDisplayMenuNetEntretien().subscribe((value)->coffeMachineScreen.displayMenuNettoyageEtEntretien(value));
+		statemachine.screen().getUpdateIsFilterPresent().subscribe((value)->coffeMachineScreen.setIsFilterPresent(value));
+		statemachine.screen().getUpdateNbreBoissons().subscribe((value)->coffeMachineScreen.setNbreBoissons(value));
+		statemachine.screen().getDisplayReglageDureteDeLeau().subscribe((value)->coffeMachineScreen.displayReglageDureteDeLeau(value));
+		statemachine.screen().getUpdateDureteDeLeau().subscribe((value)->coffeMachineScreen.setDureteDeLeau(value));
+		statemachine.screen().getDisplayReglageLangue().subscribe((value)->coffeMachineScreen.displayReglageLangue(value));
+		statemachine.screen().getUpdateLangue().subscribe((value)->coffeMachineScreen.setLangue(value));
+		statemachine.screen().getDisplayReglageQteBoisson().subscribe((value)->coffeMachineScreen.displayReglageQteBoisson(value));
+		statemachine.screen().getDisplayReglageQteBoissonPetit().subscribe((value)->coffeMachineScreen.displayReglageQteBoissonPetit(value)); 
+		statemachine.screen().getDisplayReglageQteBoissonMoyen().subscribe((value)->coffeMachineScreen.displayReglageQteBoissonMoyen(value)); 
+		statemachine.screen().getDisplayReglageQteBoissonGrand().subscribe((value)->coffeMachineScreen.displayReglageQteBoissonGrand(value)); 
+		statemachine.screen().getUpdateIsTailleDeLaTasseMlValeurDifUsine().subscribe((value)->coffeMachineScreen.setIsTailleDeLaTasseMlValeurDifUsine(value));
+		statemachine.screen().getUpdateTemps().subscribe((value)->coffeMachineScreen.setTempsArretAutomatique(value));
+		statemachine.screen().getUpdateBeepSonore().subscribe((value)->coffeMachineScreen.setBipSonore(value));
+		statemachine.screen().getDisplayReglageProportionLaitCafe().subscribe((value)->coffeMachineScreen.displayReglageProportionLaitCafe(value));
+		statemachine.screen().getDisplayProportionLaitCafe().subscribe((value)->coffeMachineScreen.displayProportionLaitCafe(value));
+		statemachine.screen().getDisplayReglageTemperatureBoisson().subscribe((value)->coffeMachineScreen.displayReglageTemperatureBoisson(value));
+		statemachine.screen().getDisplayReglageArretAutomatique().subscribe((value)->coffeMachineScreen.displayReglageArretAutomatique(value));
+		statemachine.screen().getDisplayReglageFiltreEau().subscribe((value)->coffeMachineScreen.displayReglageFiltreEau(value));
+		statemachine.screen().getDisplayReglageBeepSonore().subscribe((value)->coffeMachineScreen.displayReglageBipsonore(value));
+		statemachine.screen().getDisplayProgMaintCalcNclean().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayProgMaintCalcNclean(value)));
+		statemachine.screen().getDisplayProgMaintDetartrage().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayProgMaintDetartrage(value)));
+		statemachine.screen().getDisplayProgMaintNettoyage().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayProgMaintNettoyage(value)));
+		statemachine.screen().getDisplayProgMaintMousseLait().subscribe((value)-> Platform.runLater(()->coffeMachineScreen.displayProgMaintMousseLait(value)));
+
 		
 		coffeMachineScreen.getBtStartStop().setOnAction((e)->{statemachine.raiseStartStop();});
 		coffeMachineScreen.getBtNav().setOnAction((e)->{statemachine.raiseNavButtonClick();});
@@ -152,6 +177,10 @@ public class MachineAcafeProfessionnelleMain extends Application {
 		coffeMachineScreen.getBtOk().setOnAction((e)->{statemachine.raiseOkButtonClick();});
 		coffeMachineScreen.getBtSecuEnfant().setOnAction((e)->{statemachine.raiseFavButtonClick();});
 		coffeMachineScreen.getBtRetour().setOnAction((e)->{statemachine.raiseRetourButtonClick();});
+		coffeMachineScreen.getBtBacCollecteurVider().setOnAction((e)->{statemachine.raiseBacCollectorVider();});
+		
+		
+		
 		
 		//statemachine.screen().getDisplayOff().subscribe(new ScreenDisplayOffObserver());
 		//statemachine.screen().getDisplayLanguageChoice().subscribe(new ScreenDisplayLanguageChoiceObserver());

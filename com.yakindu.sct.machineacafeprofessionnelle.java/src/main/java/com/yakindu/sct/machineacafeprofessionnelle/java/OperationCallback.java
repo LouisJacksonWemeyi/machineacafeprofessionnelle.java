@@ -58,7 +58,7 @@ MachineAcafeProfessionnelleCtrl statemachine;
 
 	@Override
 	public void show(String a) {
-		System.out.println(a);
+		System.out.print(a);
 	}
 
 }
