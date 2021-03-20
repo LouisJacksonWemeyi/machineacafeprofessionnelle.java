@@ -1,7 +1,6 @@
 package com.yakindu.sct.machineacafeprofessionnelle.java;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.geometry.HPos;
@@ -28,6 +27,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import machineacafeprofessionnelle.MachineAcafeProfessionnelleCtrl;
 
 public class Ecran {
 private Button btExpresso;
@@ -56,6 +56,9 @@ private Button btCafeAuLaitSelected;
 private Button btMousseLaitSelected;
 private Button btBoissonSpecialeSelected;
 private Button btBacCollecteurVider;
+private Button btFiltreRemplacer;
+private Button btReservoirEauRempli;
+private Button btReservoirGrainsRempli;
 private String intensiteDucafe;
 private String tailleDeLaTasse;
 private Long tailleTasseBoiFav;
@@ -74,6 +77,7 @@ private boolean deuxTasses=false;
 private double progressBarValue = 0.0;
 private double progressBarCafe = 0.0;
 private double progressBarLait = 0.0;
+//private MachineAcafeProfessionnelleCtrl statemachine;
 
 
 private Stage stage;
@@ -276,7 +280,12 @@ String langue = null;
 		//btBoissonSpecialeSelected.setStyle("-fx-background-color: derive(grey, -60%)");
 		btBoissonSpecialeSelected.setStyle("-fx-background-color: black");
 		
-		btBacCollecteurVider=new Button();
+		btBacCollecteurVider = new Button("Button 1");
+		btFiltreRemplacer = new Button("Button 2");
+		btReservoirEauRempli = new Button("Button 3");
+		btReservoirGrainsRempli = new Button("Button 4");
+		
+		//statemachine = machineAetat;
 		
 		this.stage = stage;
 		
@@ -1560,9 +1569,9 @@ String langue = null;
 		GridPane leftSetting = new GridPane();
 		leftSetting.setHgap(5.5);
 		leftSetting.setVgap(5.5);
-		leftSetting.add(getEmptyButtonType2(), 1, 0);
+		leftSetting.add(btRetour, 1, 0);
 		leftSetting.add(getEmptyButtonType2(), 0, 1);
-		leftSetting.add(btRetour, 1, 1);
+		leftSetting.add(getEmptyButtonType2(), 1, 1);
 		GridPane.setHalignment(getEmptyButtonType2(), HPos.RIGHT);
 		
 		GridPane rightSetting = new GridPane();
@@ -2985,11 +2994,18 @@ String langue = null;
 		 btNavBandeau.getChildren().addAll(btNav);
 		 btNavBandeau.setAlignment(Pos.CENTER);
 		 
-		 ImageView tasse1 = new ImageView(new Image("/images/tassse.png"));
+		 /*ImageView choixLangue = new ImageView(new Image("/images/choixLangue.png"));
+		 choixLangue.setFitHeight(16);
+		 choixLangue.setFitWidth(15);
+		 choixLangue.setStyle("-fx-background-color:lightgray");*/
+		 
+		 ImageView tasse1 = new ImageView(new Image("/images/tasse1.png"));
+		 tasse1.setFitHeight(16);
 		 tasse1.setFitWidth(15);
 		 tasse1.setStyle("-fx-background-color:lightgray");
-		 ImageView tasse2 = new ImageView(new Image("/images/tassse.png"));
-		 //tasse2.setFitHeight(16);
+		 
+		 ImageView tasse2 = new ImageView(new Image("/images/tasse2.png"));
+		 tasse2.setFitHeight(16);
 		 tasse2.setFitWidth(15);
 		 tasse2.setStyle("-fx-background-color:lightgray");
 		 
@@ -4548,7 +4564,7 @@ String langue = null;
 			HBox ligne5 = new HBox(); 
 			Text ligne5Text = new Text("200 ml  ");
 			ligne5Text.setFont(Font.font("Courier", FontWeight.NORMAL,FontPosture.REGULAR,12));
-			ligne5.getChildren().addAll(ligne4Text,(getTailleTasseBoiFav()==200?choixLangue:new ImageView()));
+			ligne5.getChildren().addAll(ligne5Text,(getTailleTasseBoiFav()==200?choixLangue:new ImageView()));
 			ligne5.setAlignment(Pos.CENTER);
 
 			switch ((int)(double)value) {
@@ -4558,9 +4574,9 @@ String langue = null;
 			ligne5.getChildren().addAll((getTailleTasseBoiFav()==120?choixLangue:new ImageView()));
 				break;
 			case 160:ligne1Text.setText("160 ml  ");ligne2Text.setText("180 ml  ");ligne3Text.setText("200 ml  ");ligne4Text.setText("120 ml  ");ligne5Text.setText("140 ml  ");
-			ligne1.getChildren().addAll((getTailleTasseBoiFav()==180?choixLangue:new ImageView()));ligne2.getChildren().addAll((getTailleTasseBoiFav()==200?choixLangue:new ImageView()));
-			ligne3.getChildren().addAll((getTailleTasseBoiFav()==120?choixLangue:new ImageView()));ligne4.getChildren().addAll((getTailleTasseBoiFav()==160?choixLangue:new ImageView()));
-			ligne5.getChildren().addAll((getTailleTasseBoiFav()==180?choixLangue:new ImageView()));
+			ligne1.getChildren().addAll((getTailleTasseBoiFav()==160?choixLangue:new ImageView()));ligne2.getChildren().addAll((getTailleTasseBoiFav()==180?choixLangue:new ImageView()));
+			ligne3.getChildren().addAll((getTailleTasseBoiFav()==200?choixLangue:new ImageView()));ligne4.getChildren().addAll((getTailleTasseBoiFav()==120?choixLangue:new ImageView()));
+			ligne5.getChildren().addAll((getTailleTasseBoiFav()==140?choixLangue:new ImageView()));
 			    break;
 			case 180:ligne1Text.setText("180 ml  ");ligne2Text.setText("200 ml  ");ligne3Text.setText("120 ml  ");ligne4Text.setText("140 ml  ");ligne5Text.setText("160 ml  ");
 			ligne1.getChildren().addAll((getTailleTasseBoiFav()==180?choixLangue:new ImageView()));ligne2.getChildren().addAll((getTailleTasseBoiFav()==200?choixLangue:new ImageView()));
@@ -5779,7 +5795,207 @@ String langue = null;
 	return;
  }
 	
-	public void displayNettogaState() {
+ public void displayAlertMessage(String value) {
+	 HBox btNavBandeau = new HBox(); 
+	 btNavBandeau.getChildren().addAll(getEmptyButtonType3());
+	 btNavBandeau.setAlignment(Pos.CENTER);
+	 
+	//Button btnStartStop = (value=="step0"||value=="step1")?btStartStop:getEmptyButtonType1();
+	//Button btnRetour = (value=="step0")?btRetour:getEmptyButtonType1();
+	//btBacCollecteurVider.setText(value=="alertActionMessage1"?getLangueBundle().getString("filtreRemplacer"):(value=="alertActionMessage2"?getLangueBundle().getString("reservoirEauRempli"):(value=="alertActionMessage3"?getLangueBundle().getString("bacCollecteurVider"):("reservoirGrainsRempli"))));
+	
+	if(value=="alertActionMessage1") {
+	btFiltreRemplacer.setText(getLangueBundle().getString("filtreRemplacer"));
+	//btFiltreRemplacer = new Button(getLangueBundle().getString("filtreRemplacer"));
+	//btFiltreRemplacer.setOnAction((e)->{statemachine.raiseFiltreRemplacer();});
+	}else if(value=="alertActionMessage2") {
+    btReservoirEauRempli.setText(getLangueBundle().getString("reservoirEauRempli"));
+	//btReservoirEauRempli = new Button(getLangueBundle().getString("reservoirEauRempli"));
+	//btReservoirEauRempli.setOnAction((e)->{statemachine.raiseReservoirRempli();});
+	}else if(value=="alertActionMessage3") {
+	btBacCollecteurVider.setText(getLangueBundle().getString("bacCollecteurVider"));
+	//btBacCollecteurVider = new Button(getLangueBundle().getString("bacCollecteurVider"));
+	//btBacCollecteurVider.setOnAction((e)->{statemachine.raiseBacCollectorVider();});
+	}else if(value=="alertActionMessage4") {
+	btReservoirGrainsRempli.setText(getLangueBundle().getString("reservoirGrainsRempli"));
+	//btReservoirGrainsRempli = new Button(getLangueBundle().getString("reservoirGrainsRempli"));
+	//btReservoirGrainsRempli.setOnAction((e)->{statemachine.raiseGrainsAjouter();});
+	}
+	
+	GridPane bandeauDeCommandes = new GridPane();
+	bandeauDeCommandes.add(getEmptyButtonType1(), 0, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 1, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 2, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 3, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 4, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 5, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 6, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 7, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 8, 0);
+	bandeauDeCommandes.setHgap(2);
+	//bandeauDeCommandes.setStyle("-fx-background-color: derive(grey, -60%)");
+	bandeauDeCommandes.setStyle("-fx-background-color: black");
+	bandeauDeCommandes.setPadding(new Insets(2, 2, 2, 2));
+	
+	GridPane leftSetting = new GridPane();
+	leftSetting.setHgap(5.5);
+	leftSetting.setVgap(5.5);
+	leftSetting.add(getEmptyButtonType2(), 1, 0);
+	leftSetting.add(getEmptyButtonType2(), 1, 1);
+	leftSetting.add(getEmptyButtonType2(), 0, 1);
+	GridPane.setHalignment(getEmptyButtonType2(), HPos.RIGHT);
+	
+	GridPane rightSetting = new GridPane();
+	rightSetting.setHgap(5.5);
+	rightSetting.setVgap(5.5);
+	rightSetting.add(getEmptyButtonType2(), 0, 0);
+	rightSetting.add(getEmptyButtonType2(), 1, 0);
+	rightSetting.add(getEmptyButtonType2(), 1, 1);
+	rightSetting.add(getEmptyButtonType2(), 0, 1);
+	
+	Pane centralScreenText = new Pane();
+	//centralScreenText.setPrefWidth(285);
+	centralScreenText.setPrefWidth(300);
+	centralScreenText.setStyle("-fx-background-color: lightgray");
+	Pane pane = new StackPane();
+	
+	Rectangle rectangle = new Rectangle();
+	rectangle.setHeight(40);
+	rectangle.setStroke(Color.LIGHTGRAY);
+	//rectangle.setStroke(Color.BLACK);
+	rectangle.setFill(Color.LIGHTGRAY);
+	rectangle.widthProperty().bind(centralScreenText.widthProperty().subtract(30));
+	pane.getChildren().add(rectangle);
+	 
+	 HBox message = new HBox(); 
+	 Text messageText = new Text(getLangueBundle().getString(value));
+	 messageText.setFont(Font.font("courier", FontWeight.NORMAL,FontPosture.REGULAR,12));
+	 messageText.setTextAlignment(TextAlignment.CENTER);
+	 message.getChildren().addAll(messageText);
+	 message.setAlignment(Pos.CENTER);
+	 pane.getChildren().add(message); 
+	 
+	
+    /*HBox progressBar = new HBox(); 
+	ProgressBar progressbar=new ProgressBar(getProgressBarValue());
+	progressbar.prefWidthProperty().bind(centralScreenText.widthProperty().subtract(10));
+	progressBar.getChildren().addAll(progressbar);
+	//btNavBandeau.setStyle("-fx-background-color: black");
+	progressBar.setAlignment(Pos.CENTER);*/
+		
+	 VBox centralScreen = new VBox();
+	 centralScreen.setPadding(new Insets(5,5,5,5));
+	 //centralScreen.getChildren().addAll(pane,value=="step2"?progressBar:new Text());
+	 centralScreen.getChildren().addAll(pane);
+	 centralScreenText.getChildren().add(centralScreen);
+
+	GridPane bandeauScreenText = new GridPane();
+	bandeauScreenText.add(leftSetting, 0, 0);
+	bandeauScreenText.add(centralScreenText, 1, 0);
+	bandeauScreenText.add(rightSetting, 2, 0);
+	bandeauScreenText.setHgap(15);
+	
+	GridPane basdEcran = new GridPane();
+	//basdEcran.add(btBacCollecteurVider, 0, 0);
+	basdEcran.add(value=="alertActionMessage1"?btFiltreRemplacer:(value=="alertActionMessage2"?btReservoirEauRempli:(value=="alertActionMessage3"?btBacCollecteurVider:(btReservoirGrainsRempli))), 0, 0);
+	
+	VBox ScreenLogo = new VBox();
+	ScreenLogo.setPadding(new Insets(5,5,5,5));
+	//ScreenLogo.getChildren().addAll(bandeauDeCommandes,btNavBandeau,bandeauScreenText);
+	ScreenLogo.getChildren().addAll(bandeauDeCommandes,btNavBandeau,bandeauScreenText,new Text(),new Text(),basdEcran);
+	//ScreenLogo.setStyle("-fx-background-color: derive(grey, -60%)");
+	ScreenLogo.setStyle("-fx-background-color: black");
+
+	Scene scene = new Scene(ScreenLogo,700,300);
+	stage.setScene(scene);
+	return;
+ }
+ public void displayAttenteActionMessage(String value) {
+
+	 HBox btNavBandeau = new HBox(); 
+	 btNavBandeau.getChildren().addAll(getEmptyButtonType3());
+	 btNavBandeau.setAlignment(Pos.CENTER);
+	
+	GridPane bandeauDeCommandes = new GridPane();
+	bandeauDeCommandes.add(getEmptyButtonType1(), 0, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 1, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 2, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 3, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 4, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 5, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 6, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 7, 0);
+	bandeauDeCommandes.add(getEmptyButtonType1(), 8, 0);
+	bandeauDeCommandes.setHgap(2);
+	//bandeauDeCommandes.setStyle("-fx-background-color: derive(grey, -60%)");
+	bandeauDeCommandes.setStyle("-fx-background-color: black");
+	bandeauDeCommandes.setPadding(new Insets(2, 2, 2, 2));
+	
+	GridPane leftSetting = new GridPane();
+	leftSetting.setHgap(5.5);
+	leftSetting.setVgap(5.5);
+	leftSetting.add(getEmptyButtonType2(), 1, 0);
+	leftSetting.add(getEmptyButtonType2(), 1, 1);
+	leftSetting.add(getEmptyButtonType2(), 0, 1);
+	GridPane.setHalignment(getEmptyButtonType2(), HPos.RIGHT);
+	
+	GridPane rightSetting = new GridPane();
+	rightSetting.setHgap(5.5);
+	rightSetting.setVgap(5.5);
+	rightSetting.add(getEmptyButtonType2(), 0, 0);
+	rightSetting.add(btMenu, 1, 0);
+	rightSetting.add(getEmptyButtonType2(), 1, 1);
+	rightSetting.add(getEmptyButtonType2(), 0, 1);
+	
+	Pane centralScreenText = new Pane();
+	//centralScreenText.setPrefWidth(285);
+	centralScreenText.setPrefWidth(300);
+	centralScreenText.setStyle("-fx-background-color: lightgray");
+	Pane pane = new StackPane();
+	
+	Rectangle rectangle = new Rectangle();
+	rectangle.setHeight(40);
+	rectangle.setStroke(Color.LIGHTGRAY);
+	//rectangle.setStroke(Color.BLACK);
+	rectangle.setFill(Color.LIGHTGRAY);
+	rectangle.widthProperty().bind(centralScreenText.widthProperty().subtract(30));
+	pane.getChildren().add(rectangle);
+	 
+	 HBox message = new HBox(); 
+	 Text messageText = new Text(getLangueBundle().getString(value));
+	 messageText.setFont(Font.font("courier", FontWeight.NORMAL,FontPosture.REGULAR,12));
+	 messageText.setTextAlignment(TextAlignment.CENTER);
+	 message.getChildren().addAll(messageText);
+	 message.setAlignment(Pos.CENTER);
+	 pane.getChildren().add(message); 
+	 
+		
+	 VBox centralScreen = new VBox();
+	 centralScreen.setPadding(new Insets(5,5,5,5));
+	 //centralScreen.getChildren().addAll(pane,value=="step2"?progressBar:new Text());
+	 centralScreen.getChildren().addAll(pane);
+	 centralScreenText.getChildren().add(centralScreen);
+
+	GridPane bandeauScreenText = new GridPane();
+	bandeauScreenText.add(leftSetting, 0, 0);
+	bandeauScreenText.add(centralScreenText, 1, 0);
+	bandeauScreenText.add(rightSetting, 2, 0);
+	bandeauScreenText.setHgap(15);
+
+	VBox ScreenLogo = new VBox();
+	ScreenLogo.setPadding(new Insets(5,5,5,5));
+	//ScreenLogo.getChildren().addAll(bandeauDeCommandes,btNavBandeau,bandeauScreenText);
+	ScreenLogo.getChildren().addAll(bandeauDeCommandes,btNavBandeau,bandeauScreenText);
+	//ScreenLogo.setStyle("-fx-background-color: derive(grey, -60%)");
+	ScreenLogo.setStyle("-fx-background-color: black");
+
+	Scene scene = new Scene(ScreenLogo,700,300);
+	stage.setScene(scene);
+	return;
+ }
+
+ 
+ 	public void displayNettogaState() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -5943,6 +6159,17 @@ String langue = null;
 	
 	public Button getBtBacCollecteurVider() {
 		return btBacCollecteurVider;
+	}
+	public Button getBtFiltreRemplacer() {
+		return btFiltreRemplacer;
+	}
+
+	public Button getBtReservoirEauRempli() {
+		return btReservoirEauRempli;
+	}
+
+	public Button getBtReservoirGrainsRempli() {
+		return btReservoirGrainsRempli;
 	}
 
 	public Button getBtMenu() {
@@ -6115,8 +6342,5 @@ String langue = null;
 
 	public void setProgressBarLait(double progressBarLait) {
 		this.progressBarLait = progressBarLait;
-	}
-	
-	
+	}	
 }
-

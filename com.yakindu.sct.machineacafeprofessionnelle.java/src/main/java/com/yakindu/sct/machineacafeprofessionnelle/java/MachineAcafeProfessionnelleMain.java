@@ -156,7 +156,8 @@ public class MachineAcafeProfessionnelleMain extends Application {
 		statemachine.screen().getDisplayProgMaintDetartrage().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayProgMaintDetartrage(value)));
 		statemachine.screen().getDisplayProgMaintNettoyage().subscribe((value) -> Platform.runLater(()->coffeMachineScreen.displayProgMaintNettoyage(value)));
 		statemachine.screen().getDisplayProgMaintMousseLait().subscribe((value)-> Platform.runLater(()->coffeMachineScreen.displayProgMaintMousseLait(value)));
-
+		statemachine.screen().getDisplayAlertMessage().subscribe((value)-> Platform.runLater(()->coffeMachineScreen.displayAlertMessage(value)));
+		statemachine.screen().getDisplayAttenteActionMessage().subscribe((value)-> Platform.runLater(()->coffeMachineScreen.displayAttenteActionMessage(value)));
 		
 		coffeMachineScreen.getBtStartStop().setOnAction((e)->{statemachine.raiseStartStop();});
 		coffeMachineScreen.getBtNav().setOnAction((e)->{statemachine.raiseNavButtonClick();});
@@ -178,8 +179,9 @@ public class MachineAcafeProfessionnelleMain extends Application {
 		coffeMachineScreen.getBtSecuEnfant().setOnAction((e)->{statemachine.raiseFavButtonClick();});
 		coffeMachineScreen.getBtRetour().setOnAction((e)->{statemachine.raiseRetourButtonClick();});
 		coffeMachineScreen.getBtBacCollecteurVider().setOnAction((e)->{statemachine.raiseBacCollectorVider();});
-		
-		
+		coffeMachineScreen.getBtFiltreRemplacer().setOnAction((e)->{statemachine.raiseFiltreRemplacer();});
+		coffeMachineScreen.getBtReservoirEauRempli().setOnAction((e)->{statemachine.raiseReservoirRempli();}); 
+		coffeMachineScreen.getBtReservoirGrainsRempli().setOnAction((e)->{statemachine.raiseGrainsAjouter();});  
 		
 		
 		//statemachine.screen().getDisplayOff().subscribe(new ScreenDisplayOffObserver());
