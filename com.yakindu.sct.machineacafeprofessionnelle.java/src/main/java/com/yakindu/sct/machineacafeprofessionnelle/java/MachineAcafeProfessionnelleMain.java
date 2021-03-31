@@ -95,7 +95,7 @@ public class MachineAcafeProfessionnelleMain extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	private  void setupStatemachine(Stage stage) {
+	void setupStatemachine(Stage stage) {
 		statemachine = new MachineAcafeProfessionnelleCtrl();
 		timerService = new TimerService();
 		coffeMachineScreen = new Ecran(stage);

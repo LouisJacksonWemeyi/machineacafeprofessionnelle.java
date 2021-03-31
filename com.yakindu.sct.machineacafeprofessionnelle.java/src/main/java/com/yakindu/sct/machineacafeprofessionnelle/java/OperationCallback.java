@@ -22,7 +22,7 @@ MachineAcafeProfessionnelleCtrl statemachine;
 	@Override
 	public void stopHeating() {
 		statemachine.setIsHeating(false);
-	}
+	} 
 
 	@Override
 	public void startMouture(String a) {
