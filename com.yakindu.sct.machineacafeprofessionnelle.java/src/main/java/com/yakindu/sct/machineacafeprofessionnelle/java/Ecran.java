@@ -27,7 +27,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import machineacafeprofessionnelle.MachineAcafeProfessionnelleCtrl;
 
 public class Ecran {
 private Button btExpresso;

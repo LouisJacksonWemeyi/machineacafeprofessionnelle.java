@@ -9,7 +9,8 @@ import com.yakindu.core.TimerService;
 public class MachineAcafeProfessionnelleMain extends Application {
 	
 	private TimerService timerService;
-	private Ecran coffeMachineScreen;
+	//private Ecran coffeMachineScreen;
+	private Interface coffeMachineScreen;
 	private MachineAcafeProfessionnelleCtrl statemachine;
 	/*
 	 * class ScreenDisplayOffObserver implements Observer<Void>{
@@ -98,7 +99,8 @@ public class MachineAcafeProfessionnelleMain extends Application {
 	void setupStatemachine(Stage stage) {
 		statemachine = new MachineAcafeProfessionnelleCtrl();
 		timerService = new TimerService();
-		coffeMachineScreen = new Ecran(stage);
+		//coffeMachineScreen = new Ecran(stage);
+		coffeMachineScreen = new Interface(stage);
 		statemachine.setTimerService(timerService);
 		statemachine.setOperationCallback(new OperationCallback(statemachine));
 		statemachine.screen().getDisplayOff().subscribe((e) -> Platform.runLater(()->coffeMachineScreen.displayOffState()));
